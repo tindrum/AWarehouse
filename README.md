@@ -1,4 +1,4 @@
-# Magenta Backpack VR Game
+# AWarehouse
 ## based on
 ## VR-Game-Jam-Template
 ### Starter Project using Unity XR Toolkit created for VR Jam 2023
@@ -6,6 +6,7 @@
 Team Magenta Backpack, also known as Deep Bondi, makes this humble VR game for you to enjoy.
 The team members are
 - Daniel Henderson
+- Vikram Savani
 - other brothers Henderson
 - other people?
 
