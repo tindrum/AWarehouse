@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Daniel Henderson
-  productName: VRGJ_twin
+  companyName: Magenta Backpack
+  productName: A Warehouse
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.072109185, g: 0.3490566, b: 0.018111428, a: 1}
@@ -134,8 +134,10 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.1.4
-  preloadedAssets: []
+  bundleVersion: 0.0.4
+  preloadedAssets:
+  - {fileID: 1207672453085632980, guid: 190512a7e4be0f14db892b11a5973b9a, type: 2}
+  - {fileID: -9062342143870646071, guid: d46af47ef96b00a49825a3c49181afa0, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -802,7 +804,7 @@ PlayerSettings:
   allowUnsafeCode: 0
   useDeterministicCompilation: 1
   enableRoslynAnalyzers: 1
-  selectedPlatform: 0
+  selectedPlatform: 2
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
   gcIncremental: 0

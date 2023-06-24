@@ -6,11 +6,23 @@
 Team Magenta Backpack, also known as Deep Bondi, makes this humble VR game for you to enjoy.
 The team members are
 - Daniel Henderson
-- Vikram Savani
+- Vikram Savani (Gittest?!?!?!?!
+- Mark Schultz
 - other brothers Henderson
 - other people?
 
 
+# Asset Sources
+## Models and images
+
+## Code
+
+## Unity techniques
+
+## Sound and Music
+
+
+Conveyor belt from https://www.youtube.com/watch?v=rQyUACEyAVw
 
 
 # Learn More About This Project
