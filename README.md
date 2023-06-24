@@ -14,6 +14,15 @@ The team members are
 
 # Asset Sources
 ## Models and images
+Warehouse model from Dosch Design Royalty-free 3D-models for 3D-design and animation DVD, 
+which I bought for that batmitzvah I did for Nadine Ramsay's friend's kid. 
+My brother and I made a stereo digital camera, and J. Cook made some scripts to pair the images up.
+I rented a life-sized horse and a few props, made a background image in Cinema 4D,
+and took people's pictures at the party. Had to composite the background with the real-world
+photo pair taken against a green screen. Gave the patrons a color print and a stereo pic viewer.
+Bought some 3D assets on disk for the project, so I assume my license to use those assets 
+is still good.
+
 
 ## Code
 
