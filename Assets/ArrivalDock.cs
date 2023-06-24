@@ -14,28 +14,30 @@ public class ArrivalDock : MonoBehaviour
     {
         if (arrivalSpot != null)
         {
-            Debug.Log("Arrival Spot set beforehand. OK");
+            Debug.Log("       * Arrival Spot set beforehand. OK");
         }
         else
         {
-            Debug.Log("finding default arrival spot object");
+            Debug.Log("       * finding default arrival spot object");
             // transform.Find() only finds children of gameObject.
             // Don't nest objects too deep if you hope to find them.
             arrivalSpot = gameObject.transform.Find("Arrival_Spot").gameObject;
 
         }
 
-        Debug.Log("*** Arrival Dock instantiated");
+        Debug.Log("******** Arrival Dock instantiated");
         Debug.Log(arrivalSpot.name);
 
-        Debug.Log("** creating empty list of package prefab types");
+        Debug.Log("       * creating empty list of package prefab types");
         packagePrefabList = new List<GameObject>();
 
         if (defaultBoxType != null)
         {
             addPackagePrefab(defaultBoxType);
+            Debug.Log("       * adding prefab to arrivalDock list");
         }
-    }
+
+     }
 
     // Update is called once per frame
     void Update()
@@ -58,10 +60,13 @@ public class ArrivalDock : MonoBehaviour
 
     public void pushPackageOut()
     {
+        Debug.Log("********  ArrivalDock.pushPackageOut() ");
+        Debug.Log("       *  ArrivalDock.pushPackageOut() called");
+
         // trigger the generation of one package
         if (packagePrefabList != null && packagePrefabList.Count > 0)
         {
-            Debug.Log("Instantiate a package from packagePrefabList");
+            Debug.Log("       * Instantiate a package from packagePrefabList");
             GameObject boxPrefab = packagePrefabList[Random.Range(0, packagePrefabList.Count)];
             GameObject box = Instantiate(boxPrefab, arrivalSpot.transform.position, Quaternion.identity);
             box.transform.rotation = Random.rotation;
