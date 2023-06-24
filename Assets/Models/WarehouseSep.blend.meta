@@ -3,7 +3,92 @@ guid: 3037c424b43721445a0f7fcb3fab074a
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chim
+    second: {fileID: 2100000, guid: 32743f201bbf47c478eb804447025a9f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass
+    second: {fileID: 2100000, guid: f107f635b9869724ba160098aadd7a15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: horiz
+    second: {fileID: 2100000, guid: 16749b38ef0e3ff4d9ded8235ea0fb55, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roof
+    second: {fileID: 2100000, guid: b9ab650356311aa4e8df59378512ac48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wallback
+    second: {fileID: 2100000, guid: b3e6bb962ef219c41b625b49e4d954a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wallfrnt
+    second: {fileID: 2100000, guid: 87f1fc99b6b752745b08eb44bc847659, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wallside
+    second: {fileID: 2100000, guid: b81e59d3d325f3c44b3f9933af9197f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window1
+    second: {fileID: 2100000, guid: 5494b4c4602dcb94089d1a69b81e0b72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window1.001
+    second: {fileID: 2100000, guid: d9f7ff156822cf742b6945ccc509f4aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window1.002
+    second: {fileID: 2100000, guid: b48beda1e6581d04f9e21177663ab19f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window1.003
+    second: {fileID: 2100000, guid: 41f055d5325c95845afcf76a751d0009, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window1.004
+    second: {fileID: 2100000, guid: 7be2f05396a59e4409705a22ded4b5ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window2
+    second: {fileID: 2100000, guid: 5392c2bed9ab0a147859296d7d785f03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window2.001
+    second: {fileID: 2100000, guid: a5fea6e8ccc605941b04314d79ae726f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window2.002
+    second: {fileID: 2100000, guid: bea207805f3c13047964fceec1f06d4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window2.003
+    second: {fileID: 2100000, guid: ff55988bc72f36d40b002ac8675f3741, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window2.004
+    second: {fileID: 2100000, guid: f296a97fc015fa74eb045153afca5878, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
