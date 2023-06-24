@@ -20,8 +20,8 @@ public class ArrivalDoor : MonoBehaviour
         arrivalDockExists = setDockPackageType();
 
 
-        Debug.Log("Scheduled for 10 seconds: receiveOnePackage()");
-        Invoke("receiveOnePackage", 10.0f);
+       // Debug.Log("Scheduled for 10 seconds: receiveOnePackage()");
+       // Invoke("receiveOnePackage", 10.0f);
 
     }
 
@@ -39,19 +39,19 @@ public class ArrivalDoor : MonoBehaviour
             if (connectedArrivalDock.packagePrefabList.Count == 0)
             {
                 connectedArrivalDock.addPackagePrefab(packageType);
-                Debug.Log("#### setting package type of connected Arrival Dock");
+                //Debug.Log("#### setting package type of connected Arrival Dock");
 
             }
             else
             {
-                Debug.Log("#### arrival dock has a package type already");
+                //Debug.Log("#### arrival dock has a package type already");
                 connectedArrivalDock.addPackagePrefab(packageType);
                 // add one for now, to see if it can has two types
             }
         }
         else
         {
-            Debug.Log("#### FAIL. couldn't set package type");
+            //Debug.Log("#### FAIL. couldn't set package type");
 
             return false;
         }
@@ -65,7 +65,7 @@ public class ArrivalDoor : MonoBehaviour
         // Must be a static method, 
         // so can't trigger methods of an instance of this object type.
         // Not useful at this time.
-        Debug.Log("#### static method triggered from button press.");
+        //Debug.Log("#### static method triggered from button press.");
     }
 
     public void receiveOnePackage()
@@ -73,7 +73,7 @@ public class ArrivalDoor : MonoBehaviour
         if (arrivalDockExists)
         {
             connectedArrivalDock.pushPackageOut();
-            Debug.Log("#### calling ArrivalDock.pushPackageOut()");
+            //Debug.Log("#### calling ArrivalDock.pushPackageOut()");
         }
         else
         {

@@ -44,16 +44,11 @@ public class ConveyorBelt : MonoBehaviour
         theBox.GetComponent<BoxCenterOfMass>().LowerCenterOfMass();
         //collision.gameObject.GetComponent<BoxCenterOfMass>().LowerCenterOfMass();
 
-        if (onBelt.Contains(collision.gameObject))
-        {
-            Debug.Log("object already in list");
-        }
-        else
+        if (!onBelt.Contains(collision.gameObject))
         {
             onBelt.Add(collision.gameObject);
-
         }
-    }
+      }
 
     private void OnCollisionExit(Collision collision)
     {

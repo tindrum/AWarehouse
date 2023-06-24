@@ -16984,15 +16984,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 425278060732028043, guid: 1c784a0cdaa13c1498b584032ea842dc,
         type: 3}
-      propertyPath: arrivalSpot
-      value: 
-      objectReference: {fileID: 8922079161537213569}
-    - target: {fileID: 425278060732028043, guid: 1c784a0cdaa13c1498b584032ea842dc,
-        type: 3}
-      propertyPath: defaultBoxType
-      value: 
-      objectReference: {fileID: 5717503417472507097, guid: 3b1c66bfb1a5ca849bdd6c70288e0223,
-        type: 3}
+      propertyPath: timerMilliseconds
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8922079160195580436, guid: 1c784a0cdaa13c1498b584032ea842dc,
         type: 3}
       propertyPath: m_Name
@@ -17053,25 +17047,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8922079161544995368, guid: 1c784a0cdaa13c1498b584032ea842dc,
+    - target: {fileID: 8922079161544995369, guid: 1c784a0cdaa13c1498b584032ea842dc,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_LocalScale.y
+      value: 0.59647
       objectReference: {fileID: 0}
-    - target: {fileID: 8922079161544995371, guid: 1c784a0cdaa13c1498b584032ea842dc,
+    - target: {fileID: 8922079161544995369, guid: 1c784a0cdaa13c1498b584032ea842dc,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: m_LocalPosition.y
+      value: 2.387
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8922079161544995370, guid: 1c784a0cdaa13c1498b584032ea842dc, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c784a0cdaa13c1498b584032ea842dc, type: 3}
---- !u!1 &8922079161537213569 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8922079160354911381, guid: 1c784a0cdaa13c1498b584032ea842dc,
-    type: 3}
-  m_PrefabInstance: {fileID: 8922079161537213568}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8936838275683647369
 MonoBehaviour:
   m_ObjectHideFlags: 0
