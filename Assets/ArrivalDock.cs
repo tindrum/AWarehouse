@@ -6,7 +6,8 @@ public class ArrivalDock : MonoBehaviour
 {
     public float exitTimeVariance;
     public GameObject arrivalSpot;
-    private GameObject[] packagePrefabList;
+    public List<GameObject> packagePrefabList;
+    public GameObject defaultBoxType;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,14 @@ public class ArrivalDock : MonoBehaviour
 
         Debug.Log("*** Arrival Dock instantiated");
         Debug.Log(arrivalSpot.name);
+
+        Debug.Log("** creating empty list of package prefab types");
+        packagePrefabList = new List<GameObject>();
+
+        if (defaultBoxType != null)
+        {
+            addPackagePrefab(defaultBoxType);
+        }
     }
 
     // Update is called once per frame
@@ -34,9 +43,10 @@ public class ArrivalDock : MonoBehaviour
         
     }
 
-    public void addPackagePrefab()
+    public void addPackagePrefab(GameObject boxType)
     {
         // add a prefab to the types of packages this Arrival Dock will push out.
+        packagePrefabList.Add(boxType);
 
     }
 
@@ -49,10 +59,12 @@ public class ArrivalDock : MonoBehaviour
     public void pushPackageOut()
     {
         // trigger the generation of one package
-        int packageSizeChoices = packagePrefabList.Length;
-        if (packagePrefabList != null && packageSizeChoices > 0)
+        if (packagePrefabList != null && packagePrefabList.Count > 0)
         {
             Debug.Log("Instantiate a package from packagePrefabList");
+            GameObject boxPrefab = packagePrefabList[Random.Range(0, packagePrefabList.Count)];
+            GameObject box = Instantiate(boxPrefab, arrivalSpot.transform.position, Quaternion.identity);
+            box.transform.rotation = Random.rotation;
         }
 
     }

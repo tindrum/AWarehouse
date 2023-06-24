@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8922079160195580437}
   - component: {fileID: 425278060732028043}
   m_Layer: 0
-  m_Name: Arrival Dock
+  m_Name: ArrivalDock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
