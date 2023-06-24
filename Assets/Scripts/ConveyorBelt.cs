@@ -7,7 +7,7 @@ public class ConveyorBelt : MonoBehaviour
     public GameObject thisBox;
     public float speed;
     public Vector3 direction;
-    public List<GameObject> onBelt; // list of items on the conveyor belt
+    public List<GameObject> onBelt; // Hashset of items on the conveyor belt
 
 
     // Start is called before the first frame update
@@ -19,10 +19,15 @@ public class ConveyorBelt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //for (int i = 0; i <= onBelt.Count - 1; i++) // update to foreach
-        foreach(GameObject box in onBelt)
+ //       foreach(GameObject box in onBelt)
+   //     {
+     //       box.GetComponent<Rigidbody>().velocity = speed * direction * Time.deltaTime;
+       // }
+
+
+        foreach (GameObject box in onBelt)
         {
-            box.GetComponent<Rigidbody>().velocity = speed * direction * Time.deltaTime;
+                box.GetComponent<Rigidbody>().velocity = speed * direction * Time.deltaTime;
         }
     }
 
@@ -39,7 +44,15 @@ public class ConveyorBelt : MonoBehaviour
         theBox.GetComponent<BoxCenterOfMass>().LowerCenterOfMass();
         //collision.gameObject.GetComponent<BoxCenterOfMass>().LowerCenterOfMass();
 
-        onBelt.Add(collision.gameObject);
+        if (onBelt.Contains(collision.gameObject))
+        {
+            Debug.Log("object already in list");
+        }
+        else
+        {
+            onBelt.Add(collision.gameObject);
+
+        }
     }
 
     private void OnCollisionExit(Collision collision)

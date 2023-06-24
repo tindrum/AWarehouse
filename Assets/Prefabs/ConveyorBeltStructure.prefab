@@ -1,5 +1,39 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2483431576052505310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 812346043481648097}
+  m_Layer: 0
+  m_Name: movingParts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &812346043481648097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2483431576052505310}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 640230074081836093}
+  - {fileID: 477297971410347944}
+  - {fileID: 4396431704146254085}
+  m_Father: {fileID: 4690195025379051169}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3272820862038505584
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,8 +45,8 @@ GameObject:
   - component: {fileID: 477297971410347944}
   - component: {fileID: 1430249755284908000}
   - component: {fileID: 6963654751220917314}
-  - component: {fileID: 3557799804335984254}
-  - component: {fileID: 1244066191655165954}
+  - component: {fileID: 1782324643260191684}
+  - component: {fileID: 8372369213976460276}
   m_Layer: 0
   m_Name: beltEndCylinder
   m_TagString: Untagged
@@ -27,12 +61,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3272820862038505584}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2, y: -0.029, z: 0.001}
-  m_LocalScale: {x: 0.1, y: 0.502, z: 0.1}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 2, y: -0.029000044, z: 0.001000002}
+  m_LocalScale: {x: 0.1, y: 0.502, z: 0.10000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4690195025379051169}
+  m_Father: {fileID: 812346043481648097}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &1430249755284908000
@@ -85,8 +119,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3557799804335984254
-CapsuleCollider:
+--- !u!65 &1782324643260191684
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,11 +129,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &1244066191655165954
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 2.0000005, z: 1.0000005}
+  m_Center: {x: 0.000000059604645, y: 0.000000029802322, z: -0.0000010430813}
+--- !u!114 &8372369213976460276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisBox: {fileID: 0}
   speed: 41
-  direction: {x: 0, y: 0, z: 0}
+  direction: {x: 1, y: 0, z: 0}
   onBelt: []
 --- !u!1 &6063183421124405675
 GameObject:
@@ -143,9 +176,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 640230074081836093}
-  - {fileID: 477297971410347944}
-  - {fileID: 4396431704146254085}
+  - {fileID: 812346043481648097}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -160,8 +191,8 @@ GameObject:
   - component: {fileID: 4396431704146254085}
   - component: {fileID: 8396589111647955000}
   - component: {fileID: 8903195359886282823}
-  - component: {fileID: 8557031844681279592}
-  - component: {fileID: 2767456226455534053}
+  - component: {fileID: 7228101569533727999}
+  - component: {fileID: 1629336820174599516}
   m_Layer: 0
   m_Name: beltStartCylinder
   m_TagString: Untagged
@@ -176,12 +207,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7601288427596895650}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2, y: -0.029, z: 0.001}
-  m_LocalScale: {x: 0.1, y: 0.502, z: 0.1}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -2, y: -0.029000044, z: 0.001000002}
+  m_LocalScale: {x: 0.1, y: 0.502, z: 0.10000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4690195025379051169}
+  m_Father: {fileID: 812346043481648097}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &8396589111647955000
@@ -234,8 +265,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &8557031844681279592
-CapsuleCollider:
+--- !u!65 &7228101569533727999
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -244,11 +275,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &2767456226455534053
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 2.0000005, z: 1.0000005}
+  m_Center: {x: -0.000015199184, y: 0.000000029802322, z: -0.0000010430813}
+--- !u!114 &1629336820174599516
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,7 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisBox: {fileID: 0}
   speed: 41
-  direction: {x: 0, y: 0, z: 0}
+  direction: {x: 1, y: 0, z: 0}
   onBelt: []
 --- !u!1 &8537485262745246356
 GameObject:
@@ -276,7 +306,7 @@ GameObject:
   - component: {fileID: 1410526055864618405}
   - component: {fileID: 7363002019847856447}
   - component: {fileID: 798566565796520877}
-  - component: {fileID: 1182543157703585175}
+  - component: {fileID: 8742080150864930286}
   m_Layer: 0
   m_Name: beltRectangle
   m_TagString: Untagged
@@ -291,12 +321,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8537485262745246356}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 0.05, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4690195025379051169}
+  m_Father: {fileID: 812346043481648097}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1410526055864618405
@@ -362,7 +392,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1182543157703585175
+--- !u!114 &8742080150864930286
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -376,5 +406,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisBox: {fileID: 0}
   speed: 40
-  direction: {x: 0, y: 0, z: 0}
+  direction: {x: 1, y: 0, z: 0}
   onBelt: []

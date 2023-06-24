@@ -23,7 +23,7 @@ public class BoxCenterOfMass : MonoBehaviour
     public void LowerCenterOfMass()
     {
         // make a fake center of mass for testing
-        tempCenterOfMass = new Vector3(0.0f, -0.9f, 0.0f);
+        tempCenterOfMass = new Vector3(0.0f, -0.1f, 0.0f);
 
         // get the transform rotation of this box
         Quaternion boxRotation = gameObject.transform.rotation;
@@ -43,8 +43,17 @@ public class BoxCenterOfMass : MonoBehaviour
 
     public void ResetCenterOfMass()
     {
-        Debug.Log("This object needs to have its center of mass set to the default");
+        Debug.Log("************************************");
+        Debug.Log("Center of mass reset to default");
         // rb = GetComponent<Rigidbody>();
-        rb.centerOfMass = originalCenterOfMass;
+        Vector3 originalCoM = new Vector3(0.0f, 0.0f, 0.0f);
+
+        rb.centerOfMass = originalCoM;
+        Debug.Log(rb.centerOfMass);
+ //       Debug.Log(rb.CenterOfMass.x);
+   //     Debug.Log(rb.CenterOfMass.y);
+     //   Debug.Log(rb.CenterOfMass.z);
+        Debug.Log("************************************");
+
     }
 }
