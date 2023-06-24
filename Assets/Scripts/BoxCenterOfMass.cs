@@ -24,6 +24,11 @@ public class BoxCenterOfMass : MonoBehaviour
     {
         // make a fake center of mass for testing
         tempCenterOfMass = new Vector3(0.0f, -0.9f, 0.0f);
+
+        // get the transform rotation of this box
+        Quaternion boxRotation = gameObject.transform.rotation;
+
+        Debug.Log("Quaternion of angle of this box: " + boxRotation);
         Debug.Log("this object needs to have its center of mass lowered");
         // rb = GetComponent<Rigidbody>();
         originalCenterOfMass = rb.centerOfMass;
