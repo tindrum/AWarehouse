@@ -11,6 +11,7 @@ TagManager:
   - Boxes
   - Package
   - AddressLabel
+  - HandGrabOnly
   layers:
   - Default
   - TransparentFX

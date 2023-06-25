@@ -75,7 +75,12 @@ PrefabInstance:
     - target: {fileID: 1060750814797635345, guid: 245d0a75648af164ca175e546c69e9db,
         type: 3}
       propertyPath: m_Name
-      value: scene_box
+      value: scene_box Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060750814797635345, guid: 245d0a75648af164ca175e546c69e9db,
+        type: 3}
+      propertyPath: m_TagString
+      value: AddressLabel
       objectReference: {fileID: 0}
     - target: {fileID: 1565132050650349252, guid: 245d0a75648af164ca175e546c69e9db,
         type: 3}

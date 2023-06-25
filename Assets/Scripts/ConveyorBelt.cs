@@ -41,12 +41,18 @@ public class ConveyorBelt : MonoBehaviour
         GameObject theBox = collision.gameObject;
 
         // call the method on the instantiated cardboard box object
-        theBox.GetComponent<BoxCenterOfMass>().LowerCenterOfMass();
-        //collision.gameObject.GetComponent<BoxCenterOfMass>().LowerCenterOfMass();
-
-        if (!onBelt.Contains(collision.gameObject))
+        if (theBox.GetComponent("BoxCenterOfMass") != null)
         {
-            onBelt.Add(collision.gameObject);
+            // failing the LowerCenterOfMass() call, 
+            // perhaps the method exited as a failure 
+            // and therefore didn't add other types of objects to the conveyor.
+            theBox.GetComponent<BoxCenterOfMass>().LowerCenterOfMass();
+        }
+        //collision.gameObject.GetComponent<BoxCenterOfMass>().LowerCenterOfMass();
+        // this test works syntactically: !onBelt.Contains(collision.gameObject
+        if (theBox.CompareTag("Boxes") && !onBelt.Contains(theBox))
+        {
+            onBelt.Add(theBox);
         }
       }
 
@@ -57,6 +63,6 @@ public class ConveyorBelt : MonoBehaviour
 
         // call the method on the instantiated cardboard box object
         theBox.GetComponent<BoxCenterOfMass>().ResetCenterOfMass();
-        onBelt.Remove(collision.gameObject);
+        onBelt.Remove(theBox);
     }
 }
