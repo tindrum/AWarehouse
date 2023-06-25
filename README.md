@@ -14,8 +14,8 @@ The team members are
 
 # Asset Sources
 ## Models and images
-Warehouse model from Dosch Design Royalty-free 3D-models for 3D-design and animation DVD, 
-which I bought for that batmitzvah I did for Nadine Ramsay's friend's kid. 
+### Warehouse model from Dosch Design Royalty-free 3D-models for 3D-design and animation DVD
+I bought some 3D assets on physical CD-Roms for a batmitzvah I worked for Nadine Ramsay's friend's kid. 
 My brother and I made a stereo digital camera, and J. Cook made some scripts to pair the images up.
 I rented a life-sized horse and a few props, made a background image in Cinema 4D,
 and took people's pictures at the party. Had to composite the background with the real-world
@@ -25,6 +25,11 @@ is still good.
 
 
 ## Code
+### Notes field from https://www.codeproject.com/Tips/1208852/How-to-Add-Comments-Notes-to-a-GameObject-in-Unity#:~:text=In%20order%20to%20add%20a%20note%20to%20a,window%29.%20Here%20is%20an%20example%3A%20...%20More%20items
+Hoping notes are script-readable and script-writable.
+This code is apparantly some kind of open-source:
+This article, along with any associated source code and files, is licensed under The Code Project Open License (CPOL).
+My lawyer will read the actual license terms when I'm rich.
 
 ## Unity techniques
 

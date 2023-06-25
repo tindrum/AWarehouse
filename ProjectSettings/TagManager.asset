@@ -9,6 +9,8 @@ TagManager:
   - Water
   - Destroyer
   - Boxes
+  - Package
+  - AddressLabel
   layers:
   - Default
   - TransparentFX
