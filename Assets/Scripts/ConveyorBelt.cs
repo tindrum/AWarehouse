@@ -10,6 +10,11 @@ public class ConveyorBelt : MonoBehaviour
     public List<GameObject> onBelt; // Hashset of items on the conveyor belt
 
 
+     [SerializeField] public GameObject testBeeper;
+    public AudioClip enunciatorSound;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,9 +42,6 @@ public class ConveyorBelt : MonoBehaviour
         // tell object to figure out its world rotation
         // and set its center of mass lower
 
-        // get the instance of the box object
-        GameObject theBox = collision.gameObject;
-
         // call the method on the instantiated cardboard box object
         if (collision.gameObject.GetComponent("BoxCenterOfMass") != null)
         {
@@ -61,11 +63,13 @@ public class ConveyorBelt : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        // get the instance of the box object
-        GameObject theBox = collision.gameObject;
-
         // call the method on the instantiated cardboard box object
-        collision.gameObject.GetComponent<BoxCenterOfMass>().ResetCenterOfMass();
+        if (collision.gameObject.GetComponent("BoxCenterOfMass") != null)
+        {
+            collision.gameObject.GetComponent<BoxCenterOfMass>().ResetCenterOfMass();
+        }
+        testBeeper.GetComponent<AudioSource>().PlayOneShot(enunciatorSound, 1.0f);
+
         onBelt.Remove(collision.gameObject);
     }
 }
