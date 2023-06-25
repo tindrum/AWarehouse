@@ -11,7 +11,10 @@ public class ConveyorBelt : MonoBehaviour
 
 
      [SerializeField] public GameObject testBeeper;
-    public AudioClip enunciatorSound;
+    public AudioClip soundAdded;
+    public AudioClip soundRemoved;
+    public AudioClip hasCoMsoundAdded;
+    public AudioClip hasCoMsoundRemoved;
 
 
 
@@ -48,6 +51,7 @@ public class ConveyorBelt : MonoBehaviour
             // failing the LowerCenterOfMass() call, 
             // perhaps the method exited as a failure 
             // and therefore didn't add other types of objects to the conveyor.
+            testBeeper.GetComponent<AudioSource>().PlayOneShot(hasCoMsoundAdded, 1.0f);
             collision.gameObject.GetComponent<BoxCenterOfMass>().LowerCenterOfMass();
         }
         //collision.gameObject.GetComponent<BoxCenterOfMass>().LowerCenterOfMass();
@@ -57,6 +61,8 @@ public class ConveyorBelt : MonoBehaviour
         // theBox.CompareTag("Boxes") && 
         if (!onBelt.Contains(collision.gameObject))
         {
+            testBeeper.GetComponent<AudioSource>().PlayOneShot(soundAdded, 1.0f);
+
             onBelt.Add(collision.gameObject);
         }
       }
@@ -66,9 +72,11 @@ public class ConveyorBelt : MonoBehaviour
         // call the method on the instantiated cardboard box object
         if (collision.gameObject.GetComponent("BoxCenterOfMass") != null)
         {
+            testBeeper.GetComponent<AudioSource>().PlayOneShot(hasCoMsoundRemoved, 1.0f);
+
             collision.gameObject.GetComponent<BoxCenterOfMass>().ResetCenterOfMass();
         }
-        testBeeper.GetComponent<AudioSource>().PlayOneShot(enunciatorSound, 1.0f);
+        testBeeper.GetComponent<AudioSource>().PlayOneShot(soundRemoved, 1.0f);
 
         onBelt.Remove(collision.gameObject);
     }
