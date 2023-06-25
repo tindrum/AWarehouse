@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine;
 
 public class ConveyorBelt : MonoBehaviour
@@ -7,7 +9,8 @@ public class ConveyorBelt : MonoBehaviour
     public GameObject thisBox;
     public float speed;
     public Vector3 direction;
-    public List<GameObject> onBelt; // Hashset of items on the conveyor belt
+    public List<GameObject> onBelt; // List of items on the conveyor belt
+    public TMP_Text boxCountText;
 
 
      [SerializeField] public GameObject testBeeper;
@@ -79,5 +82,14 @@ public class ConveyorBelt : MonoBehaviour
         testBeeper.GetComponent<AudioSource>().PlayOneShot(soundRemoved, 1.0f);
 
         onBelt.Remove(collision.gameObject);
+        if (boxCountText != null)
+        {
+            DisplayBoxCount();
+        }
+    }
+
+    public void DisplayBoxCount()
+    {
+        boxCountText.text = onBelt.Count.ToString();
     }
 }

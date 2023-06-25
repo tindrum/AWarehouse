@@ -6887,20 +6887,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1182543157703585175, guid: b6e4a56d012d3544485ee06d07b50e81,
+    - target: {fileID: 3937257810579461924, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
-      propertyPath: direction.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1244066191655165954, guid: b6e4a56d012d3544485ee06d07b50e81,
-        type: 3}
-      propertyPath: direction.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2767456226455534053, guid: b6e4a56d012d3544485ee06d07b50e81,
-        type: 3}
-      propertyPath: direction.x
-      value: 1
+      propertyPath: m_LocalPosition.y
+      value: -0.213
       objectReference: {fileID: 0}
     - target: {fileID: 4690195025379051169, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
@@ -6966,17 +6956,7 @@ PrefabInstance:
         type: 3}
       propertyPath: testBeeper
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8372369213976460276, guid: b6e4a56d012d3544485ee06d07b50e81,
-        type: 3}
-      propertyPath: enunciatorSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 54ba6e09f4d729749a27eaa6904eb0d5, type: 3}
-    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
-        type: 3}
-      propertyPath: soundAdded
-      value: 
-      objectReference: {fileID: 8300000, guid: 8d5c617c0a845eb4bb8df15a075d3830, type: 3}
+      objectReference: {fileID: 1378217240}
     - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
       propertyPath: testBeeper
@@ -6984,26 +6964,23 @@ PrefabInstance:
       objectReference: {fileID: 1378217240}
     - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
-      propertyPath: soundRemoved
+      propertyPath: boxCountText
       value: 
-      objectReference: {fileID: 8300000, guid: 68fb34f6c9389d740b46682fa15cbff6, type: 3}
-    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
-        type: 3}
-      propertyPath: enunciatorSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 1b7f4de590561ed41bdecf46a947b01e, type: 3}
-    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
-        type: 3}
-      propertyPath: hasCoMsoundAdded
-      value: 
-      objectReference: {fileID: 8300000, guid: aeebf9f35b9b66a45945c9300732d5d6, type: 3}
-    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
-        type: 3}
-      propertyPath: hasCoMsoundRemoved
-      value: 
-      objectReference: {fileID: 8300000, guid: 58dfbf8a948f1ed458c73ba5a27941a7, type: 3}
+      objectReference: {fileID: 1232653019}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6e4a56d012d3544485ee06d07b50e81, type: 3}
+--- !u!114 &1232653019 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3062015236795552436, guid: b6e4a56d012d3544485ee06d07b50e81,
+    type: 3}
+  m_PrefabInstance: {fileID: 1232653018}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1235407955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12042,6 +12019,16 @@ PrefabInstance:
       propertyPath: direction.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3937257810579461924, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3937257810579461924, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.246
+      objectReference: {fileID: 0}
     - target: {fileID: 4690195025379051169, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
       propertyPath: m_RootOrder
@@ -12114,6 +12101,11 @@ PrefabInstance:
       objectReference: {fileID: 1378217240}
     - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
+      propertyPath: boxCountText
+      value: 
+      objectReference: {fileID: 1910898795}
+    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
       propertyPath: enunciatorSound
       value: 
       objectReference: {fileID: 8300000, guid: 54ba6e09f4d729749a27eaa6904eb0d5, type: 3}
@@ -12129,6 +12121,18 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 58dfbf8a948f1ed458c73ba5a27941a7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6e4a56d012d3544485ee06d07b50e81, type: 3}
+--- !u!114 &1910898795 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3062015236795552436, guid: b6e4a56d012d3544485ee06d07b50e81,
+    type: 3}
+  m_PrefabInstance: {fileID: 1910898794}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1913037773
 GameObject:
   m_ObjectHideFlags: 0
@@ -15494,6 +15498,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1629336820174599516, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: soundAdded
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d5c617c0a845eb4bb8df15a075d3830, type: 3}
+    - target: {fileID: 1629336820174599516, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: testBeeper
+      value: 
+      objectReference: {fileID: 1378217240}
+    - target: {fileID: 1629336820174599516, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: soundRemoved
+      value: 
+      objectReference: {fileID: 8300000, guid: 68fb34f6c9389d740b46682fa15cbff6, type: 3}
+    - target: {fileID: 1629336820174599516, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: hasCoMsoundAdded
+      value: 
+      objectReference: {fileID: 8300000, guid: aeebf9f35b9b66a45945c9300732d5d6, type: 3}
+    - target: {fileID: 1629336820174599516, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: hasCoMsoundRemoved
+      value: 
+      objectReference: {fileID: 8300000, guid: 58dfbf8a948f1ed458c73ba5a27941a7, type: 3}
+    - target: {fileID: 3937257810579461924, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4690195025379051169, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
       propertyPath: m_RootOrder
@@ -15556,9 +15590,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8372369213976460276, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
+      propertyPath: soundAdded
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d5c617c0a845eb4bb8df15a075d3830, type: 3}
+    - target: {fileID: 8372369213976460276, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
       propertyPath: testBeeper
       value: 
       objectReference: {fileID: 1378217240}
+    - target: {fileID: 8372369213976460276, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: soundRemoved
+      value: 
+      objectReference: {fileID: 8300000, guid: 68fb34f6c9389d740b46682fa15cbff6, type: 3}
     - target: {fileID: 8372369213976460276, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
       propertyPath: enunciatorSound
@@ -15568,16 +15612,58 @@ PrefabInstance:
         type: 3}
       propertyPath: hasCoMsoundAdded
       value: 
-      objectReference: {fileID: 8300000, guid: bcd35af2a833c3a4cb0588d4f6e2cf98, type: 3}
+      objectReference: {fileID: 8300000, guid: aeebf9f35b9b66a45945c9300732d5d6, type: 3}
     - target: {fileID: 8372369213976460276, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
       propertyPath: hasCoMsoundRemoved
       value: 
-      objectReference: {fileID: 8300000, guid: b342f3b158809fe45b2c44a53f48502c, type: 3}
+      objectReference: {fileID: 8300000, guid: 58dfbf8a948f1ed458c73ba5a27941a7, type: 3}
+    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: soundAdded
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d5c617c0a845eb4bb8df15a075d3830, type: 3}
+    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: testBeeper
+      value: 
+      objectReference: {fileID: 1378217240}
+    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: boxCountText
+      value: 
+      objectReference: {fileID: 5686598205869008616}
+    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: soundRemoved
+      value: 
+      objectReference: {fileID: 8300000, guid: 68fb34f6c9389d740b46682fa15cbff6, type: 3}
+    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: hasCoMsoundAdded
+      value: 
+      objectReference: {fileID: 8300000, guid: aeebf9f35b9b66a45945c9300732d5d6, type: 3}
+    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: hasCoMsoundRemoved
+      value: 
+      objectReference: {fileID: 8300000, guid: 58dfbf8a948f1ed458c73ba5a27941a7, type: 3}
     m_RemovedComponents:
     - {fileID: 3557799804335984254, guid: b6e4a56d012d3544485ee06d07b50e81, type: 3}
     - {fileID: 8557031844681279592, guid: b6e4a56d012d3544485ee06d07b50e81, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b6e4a56d012d3544485ee06d07b50e81, type: 3}
+--- !u!114 &5686598205869008616 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3062015236795552436, guid: b6e4a56d012d3544485ee06d07b50e81,
+    type: 3}
+  m_PrefabInstance: {fileID: 5686598205869008615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5845746696987543217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17814,6 +17900,29 @@ PrefabInstance:
       propertyPath: timerMilliseconds
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 425278060732028043, guid: 1c784a0cdaa13c1498b584032ea842dc,
+        type: 3}
+      propertyPath: packagePrefabList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 425278060732028043, guid: 1c784a0cdaa13c1498b584032ea842dc,
+        type: 3}
+      propertyPath: packagePrefabList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1060750814797635345, guid: 245d0a75648af164ca175e546c69e9db,
+        type: 3}
+    - target: {fileID: 425278060732028043, guid: 1c784a0cdaa13c1498b584032ea842dc,
+        type: 3}
+      propertyPath: packagePrefabList.Array.data[1]
+      value: 
+      objectReference: {fileID: 5717503417472507097, guid: 3b1c66bfb1a5ca849bdd6c70288e0223,
+        type: 3}
+    - target: {fileID: 425278060732028043, guid: 1c784a0cdaa13c1498b584032ea842dc,
+        type: 3}
+      propertyPath: packagePrefabList.Array.data[2]
+      value: 
+      objectReference: {fileID: 1538948441363334056, guid: 6058ea0217559dc4f967b09241a778c1,
+        type: 3}
     - target: {fileID: 8922079160195580436, guid: 1c784a0cdaa13c1498b584032ea842dc,
         type: 3}
       propertyPath: m_Name
