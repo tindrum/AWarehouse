@@ -26,7 +26,7 @@ public class ArrivalDock : MonoBehaviour
      //   Debug.Log(arrivalSpot.name);
 //
       //  Debug.Log("       * creating empty list of package prefab types");
-        packagePrefabList = new List<GameObject>();
+        // packagePrefabList = new List<GameObject>();
 
         if (defaultBoxType != null)
         {
@@ -75,7 +75,10 @@ public class ArrivalDock : MonoBehaviour
     public void addPackagePrefab(GameObject boxType)
     {
         // add a prefab to the types of packages this Arrival Dock will push out.
+        Debug.Log("before Arrival Dock package list items: " + packagePrefabList.Count);
         packagePrefabList.Add(boxType);
+        Debug.Log("after Arrival Dock package list items: " + packagePrefabList.Count);
+
 
     }
 

@@ -54,7 +54,10 @@ public class ConveyorBelt : MonoBehaviour
             // failing the LowerCenterOfMass() call, 
             // perhaps the method exited as a failure 
             // and therefore didn't add other types of objects to the conveyor.
-            testBeeper.GetComponent<AudioSource>().PlayOneShot(hasCoMsoundAdded, 1.0f);
+            if (testBeeper != null)
+            {
+                testBeeper.GetComponent<AudioSource>().PlayOneShot(hasCoMsoundAdded, 0.2f);
+            }
             collision.gameObject.GetComponent<BoxCenterOfMass>().LowerCenterOfMass();
         }
         //collision.gameObject.GetComponent<BoxCenterOfMass>().LowerCenterOfMass();
@@ -64,22 +67,36 @@ public class ConveyorBelt : MonoBehaviour
         // theBox.CompareTag("Boxes") && 
         if (!onBelt.Contains(collision.gameObject))
         {
-            testBeeper.GetComponent<AudioSource>().PlayOneShot(soundAdded, 1.0f);
+            if (testBeeper != null)
+            {
+                testBeeper.GetComponent<AudioSource>().PlayOneShot(soundAdded, 0.8f);
+            }
 
             onBelt.Add(collision.gameObject);
         }
-      }
+        if (boxCountText != null)
+        {
+            DisplayBoxCount();
+        }
+
+    }
 
     private void OnCollisionExit(Collision collision)
     {
         // call the method on the instantiated cardboard box object
         if (collision.gameObject.GetComponent("BoxCenterOfMass") != null)
         {
-            testBeeper.GetComponent<AudioSource>().PlayOneShot(hasCoMsoundRemoved, 1.0f);
+            if (testBeeper != null)
+            {
+                testBeeper.GetComponent<AudioSource>().PlayOneShot(hasCoMsoundRemoved, 0.2f);
+            }
 
             collision.gameObject.GetComponent<BoxCenterOfMass>().ResetCenterOfMass();
         }
-        testBeeper.GetComponent<AudioSource>().PlayOneShot(soundRemoved, 1.0f);
+        if (testBeeper != null)
+        {
+            testBeeper.GetComponent<AudioSource>().PlayOneShot(soundRemoved, 0.8f);
+        }
 
         onBelt.Remove(collision.gameObject);
         if (boxCountText != null)

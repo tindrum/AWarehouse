@@ -39,19 +39,19 @@ public class ArrivalDoor : MonoBehaviour
             if (connectedArrivalDock.packagePrefabList.Count == 0)
             {
                 connectedArrivalDock.addPackagePrefab(packageType);
-                //Debug.Log("#### setting package type of connected Arrival Dock");
+                Debug.Log("#### setting package type of empty connected Arrival Dock");
 
             }
             else
             {
-                //Debug.Log("#### arrival dock has a package type already");
+                Debug.Log("#### arrival dock has a package type already, setting another");
                 connectedArrivalDock.addPackagePrefab(packageType);
                 // add one for now, to see if it can has two types
             }
         }
         else
         {
-            //Debug.Log("#### FAIL. couldn't set package type");
+            Debug.Log("#### FAIL. couldn't set package type");
 
             return false;
         }
