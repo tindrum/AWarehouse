@@ -31,6 +31,9 @@ This code is apparantly some kind of open-source:
 This article, along with any associated source code and files, is licensed under The Code Project Open License (CPOL).
 My lawyer will read the actual license terms when I'm rich.
 
+### Raycasting https://gamedevbeginner.com/raycasts-in-unity-made-easy/#raycast_multiple_objects
+Nice simpler explanation of raycasting. 
+
 ## Unity techniques
 
 ## Sound and Music
