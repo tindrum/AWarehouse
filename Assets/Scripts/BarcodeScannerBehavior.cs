@@ -41,12 +41,12 @@ public class BarcodeScannerBehavior : MonoBehaviour
 
     public void NoScanRead()
     {
-        speaker.PlayOneShot(scanNoBarcode, 0.9f);
+        speaker.PlayOneShot(scanNoBarcode, 0.5f);
     }
 
     public void BadScanRead()
     {
-        speaker.PlayOneShot(scanStateThree, 0.9f);
+        speaker.PlayOneShot(scanStateThree, 0.5f);
     }
 
     public void ScanReadOK()
@@ -56,7 +56,7 @@ public class BarcodeScannerBehavior : MonoBehaviour
 
     public void StartScanRead() 
     {
-         speaker.PlayOneShot(scanSound, 0.9f);
+         speaker.PlayOneShot(scanSound, 1.0f);
 
     }
 
@@ -79,7 +79,7 @@ public void BarcodeScan()
             {
                 // get the angle difference between the box and the scanner point of origin
                 float angleDifference = Vector3.Angle(raycastOrigin.forward, hit.transform.gameObject.transform.forward);
-                if (angleDifference >= minAngleDifference)
+                if (angleDifference <= minAngleDifference)
                 {
                     // the angle will be up near 180 if the label is facing right at the scanner
                     ScanReadOK();

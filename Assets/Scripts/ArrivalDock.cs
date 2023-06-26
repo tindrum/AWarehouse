@@ -100,7 +100,10 @@ public class ArrivalDock : MonoBehaviour
             int itemIndex = Random.Range(0, packagePrefabList.Count);
             GameObject boxPrefab = packagePrefabList[itemIndex];
             GameObject box = Instantiate(boxPrefab, arrivalSpot.transform.position, Quaternion.identity);
-            box.transform.rotation = Random.rotation;
+
+            // Would like boxes not to come out in a uniform rotation, but need to not change their "internal" north, 
+            // just their facing in the world.
+            // box.transform.rotation = Random.rotation;
         }
 
     }
