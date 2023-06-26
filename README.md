@@ -25,14 +25,26 @@ is still good.
 
 
 ## Code
-### Notes field from https://www.codeproject.com/Tips/1208852/How-to-Add-Comments-Notes-to-a-GameObject-in-Unity#:~:text=In%20order%20to%20add%20a%20note%20to%20a,window%29.%20Here%20is%20an%20example%3A%20...%20More%20items
+### Notes Field
 Hoping notes are script-readable and script-writable.
 This code is apparantly some kind of open-source:
 This article, along with any associated source code and files, is licensed under The Code Project Open License (CPOL).
 My lawyer will read the actual license terms when I'm rich.
+https://www.codeproject.com/Tips/1208852/How-to-Add-Comments-Notes-to-a-GameObject-in-Unity#:~:text=In%20order%20to%20add%20a%20note%20to%20a,window%29.%20Here%20is%20an%20example%3A%20...%20More%20items
 
-### Raycasting https://gamedevbeginner.com/raycasts-in-unity-made-easy/#raycast_multiple_objects
+### Raycasting Explained
 Nice simpler explanation of raycasting. 
+ https://gamedevbeginner.com/raycasts-in-unity-made-easy/#raycast_multiple_objects
+
+### Conveyor Belt (better)
+This one might take less tweaking,
+and keep boxes from rolling.
+https://www.youtube.com/watch?v=cSEg7Xm4A9A&t=85s
+https://github.com/Jayometric/3D-Conveyor-Belt-for-Unity/blob/main/ConveyorBelt
+
+
+### Conveyor Belt (original)
+Conveyor belt from https://www.youtube.com/watch?v=rQyUACEyAVw
 
 ## Unity techniques
 
