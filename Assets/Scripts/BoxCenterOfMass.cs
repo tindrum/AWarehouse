@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoxCenterOfMass : MonoBehaviour
 {
     private Vector3 originalCenterOfMass;
-    public Rigidbody rb;
+    private Rigidbody rb;
     private Vector3 tempCenterOfMass;
 
     // Start is called before the first frame update
@@ -26,7 +26,7 @@ public class BoxCenterOfMass : MonoBehaviour
         tempCenterOfMass = new Vector3(0.0f, -0.1f, 0.0f);
 
         // get the transform rotation of this box
-        Quaternion boxRotation = gameObject.transform.rotation;
+        // Quaternion boxRotation = gameObject.transform.rotation;
 
         //Debug.Log("Quaternion of angle of this box: " + boxRotation);
         //Debug.Log("this object needs to have its center of mass lowered");
@@ -46,9 +46,9 @@ public class BoxCenterOfMass : MonoBehaviour
         //Debug.Log("************************************");
         //Debug.Log("Center of mass reset to default");
         // rb = GetComponent<Rigidbody>();
-        Vector3 originalCoM = new Vector3(0.0f, 0.0f, 0.0f);
+        // Vector3 originalCoM = new Vector3(0.0f, 0.0f, 0.0f);
 
-        rb.centerOfMass = originalCoM;
+        rb.centerOfMass = originalCenterOfMass;
        // Debug.Log(rb.centerOfMass);
  //       Debug.Log(rb.CenterOfMass.x);
    //     Debug.Log(rb.CenterOfMass.y);

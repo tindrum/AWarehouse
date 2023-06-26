@@ -7,8 +7,6 @@ using UnityEngine.InputSystem;
 
 public class BarcodeScannerBehavior : MonoBehaviour
 {
-    public Transform scanPoint;
-    public LayerMask scannableLayer;
 
     [SerializeField] private Transform raycastOrigin;
     [SerializeField] private float scannerDistanceRange = 0.5f;
@@ -22,24 +20,23 @@ public class BarcodeScannerBehavior : MonoBehaviour
     public AudioClip scanStateTwo;
     public AudioClip scanStateThree;
 
-    public PhysicMaterial barcodeMaterial;
 
 
-    private AudioSource speaker;
+    public AudioSource speaker;
 
     // Start is called before the first frame update
     void Start()
     {
-        speaker = GetComponent<AudioSource>();
+        // speaker = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
+        // if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        // {
 
-        }
+        // }
     }
 
     public void NoScanRead()
@@ -54,17 +51,23 @@ public class BarcodeScannerBehavior : MonoBehaviour
 
     public void ScanReadOK()
     {
-            speaker.PlayOneShot(scanBarcodeScanned, 0.9f);
+        speaker.PlayOneShot(scanBarcodeScanned, 0.9f);
+    }
+
+    public void StartScanRead() 
+    {
+         speaker.PlayOneShot(scanSound, 0.9f);
+
     }
 
 
 
-    
 
-    public void BarcodeScan()
+
+public void BarcodeScan()
     {
         // Layer mask for boxes and box blockers
-        speaker.PlayOneShot(scanSound, 0.9f);
+        // speaker.PlayOneShot(scanSound, 0.9f);
 
 
         RaycastHit hit;
