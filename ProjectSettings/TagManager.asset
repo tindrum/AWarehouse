@@ -12,6 +12,7 @@ TagManager:
   - Package
   - AddressLabel
   - HandGrabOnly
+  - HideFromScanner
   layers:
   - Default
   - TransparentFX
@@ -27,9 +28,9 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - scannableLayer
+  - barcode
+  - notBarcode
   - 
   - 
   - 

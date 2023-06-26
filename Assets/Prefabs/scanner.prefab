@@ -313,7 +313,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 128
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
@@ -363,19 +363,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 3998679617106188036}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 580b8b5019ed5124bb152631a92150a3,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   m_Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -423,11 +410,11 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 1
+  m_SmoothPosition: 0
   m_SmoothPositionAmount: 5
   m_TightenPosition: 0.5
   m_TrackRotation: 1
-  m_SmoothRotation: 1
+  m_SmoothRotation: 0
   m_SmoothRotationAmount: 5
   m_TightenRotation: 0.5
   m_ThrowOnDetach: 1
@@ -468,7 +455,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastOrigin: {fileID: 652633104272080551}
-  scannerDistanceRange: 2
+  scannerDistanceRange: 1
+  scanSound: {fileID: 8300000, guid: 6517deed7be740743a2c342fa5339205, type: 3}
+  scanBarcodeScanned: {fileID: 8300000, guid: 12b7f71d1b1e6ba46a065a94cab11e4a, type: 3}
+  scanNoBarcode: {fileID: 8300000, guid: 43ad184d255c63f408e88a37f610fe74, type: 3}
+  scanStateOne: {fileID: 8300000, guid: 9469a2b27835aa14699423016331c10d, type: 3}
+  scanStateTwo: {fileID: 8300000, guid: bcd35af2a833c3a4cb0588d4f6e2cf98, type: 3}
+  scanStateThree: {fileID: 8300000, guid: 43ca24f62bd27d04c9ebb99fe903a546, type: 3}
 --- !u!1 &4093232515710245544
 GameObject:
   m_ObjectHideFlags: 0
