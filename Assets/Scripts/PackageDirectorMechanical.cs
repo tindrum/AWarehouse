@@ -150,7 +150,7 @@ public class PackageDirectorMechanical : MonoBehaviour
         }
     }
 
-    void SetSweepAngle(float angle)
+    public void SetSweepAngle(float angle)
     {
         if (angle < 0.0f) // counterclockwise, negative
         {
