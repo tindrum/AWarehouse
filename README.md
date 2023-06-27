@@ -46,6 +46,9 @@ https://github.com/Jayometric/3D-Conveyor-Belt-for-Unity/blob/main/ConveyorBelt
 ### Conveyor Belt (original)
 Conveyor belt from https://www.youtube.com/watch?v=rQyUACEyAVw
 
+### Object Messaging
+https://gamedevbeginner.com/events-and-delegates-in-unity/
+
 ## Unity techniques
 
 ## Sound and Music

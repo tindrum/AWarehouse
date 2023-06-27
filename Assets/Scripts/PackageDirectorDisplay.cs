@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class PackageDirectorDisplay : MonoBehaviour
 {
-    [SerializeField] private TMP_Text displayTextOne;
-    [SerializeField] private TMP_Text displayTextTwo;
+    [SerializeField] private GameObject displayOne;
+    [SerializeField] private GameObject displayTwo;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        displayOne = transform.Find("infoScreen").gameObject;
+        displayTwo = transform.Find("infoTwo").gameObject;
+
     }
 
     // Update is called once per frame
