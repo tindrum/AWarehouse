@@ -1,27 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class PackageDirectorMechanical : MonoBehaviour
 {
-    enum PaddleArm
-    {
-        Near,
-        Far
-    }
-
-    enum RotationDirection
-    {
-        Clockwise,
-        CounterClockwise
-    }
             
     [SerializeField] private Transform nearPaddle;
     [SerializeField] private Transform farPaddle;
 
     // current angles. 
-    [SerializeField] private float nearSweepAngle;
-    [SerializeField] private float farSweepAngle;
+    [SerializeField] private float nearCurrentAngle;
+    [SerializeField] private float farCurrentAngle;
 
     // angle of max sweep of arms. 
     [SerializeField] private float nearCCWSweepMax;
@@ -30,8 +21,23 @@ public class PackageDirectorMechanical : MonoBehaviour
     [SerializeField] private float farCWSweepMax;
 
     private float sweepSpeed;
-    private float nearTargetSweepAngle;
-    private float farTargetSweepAngle;
+    private float nearCommandedAngle;
+    private float farCommandedAngle;
+    private float nearEnoughAngleDifference;
+
+    public AudioSource speaker;
+    public AudioClip leverSwipeUpSound;
+
+    // debug
+    public AudioClip confirmSuspicionOne;
+    public AudioClip confirmSuspicionTwo;
+    public AudioClip denySuspicion;
+
+    // text debug
+    public TMP_Text diagnosticOne;
+    public TMP_Text diagnosticTwo;
+
+    
 
 
     // Start is called before the first frame update
@@ -40,184 +46,79 @@ public class PackageDirectorMechanical : MonoBehaviour
         nearPaddle = transform.Find("NearPaddlePivot");
         farPaddle = transform.Find("FarPaddlePivot");
 
-        nearTargetSweepAngle = 0.0f;
-        farTargetSweepAngle = 0.0f;
+        nearCommandedAngle = 0.0f;
+        farCommandedAngle = 0.0f;
+
+        nearEnoughAngleDifference = 3.0f; 
         sweepSpeed = 0.5f; // maximum angular speed
 
-        // set the sweep max angles
-        PaddleArm arm;
-        RotationDirection rot;
 
-        arm = PaddleArm.Near;
-        rot = RotationDirection.Clockwise;
-        SetSweepMax(arm, rot, 35.0f);
-        rot = RotationDirection.CounterClockwise;
-        SetSweepMax(arm, rot, -55.0f);
-        arm = PaddleArm.Far;
-        SetSweepMax(arm, rot, -35.0f);
-        rot = RotationDirection.Clockwise;
-        SetSweepMax(arm, rot, 55.0f);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        float anglesNeeded;
-
-        // compute the angles still needed for near paddle
-        anglesNeeded = nearTargetSweepAngle - nearPaddle.rotation.eulerAngles.y;
-
-        // compute the angles still needed for far paddle
-
-
-        if (nearPaddle.rotation.eulerAngles.y < nearCCWSweepMax)
+        if (!SweepAngleAchieved(nearPaddle, nearCommandedAngle))
         {
+            diagnosticTwo.text = "m";
 
-        }
-        if (farPaddle.rotation.eulerAngles.y < farCCWSweepMax)
-        {
-
-        }
-        float nearRotateSpeed = sweepSpeed;
-        float farRotateSpeed = sweepSpeed;
-
-        
-    }
-
-    private float anglesNeeded(PaddleArm arm, float angleDesired)
-    {
-        float anglesNeeded;
-        float limit;
-        if (angleDesired < 0.0f)
-        {
-            if (arm == PaddleArm.Near)
-            {
-                limit = nearCCWSweepMax;
-            }
-            else
-            {
-                limit = farCCWSweepMax;
-            }
-            // if lim - des < 0, continue rotation
-            anglesNeeded = limit - angleDesired;
-            if (anglesNeeded < 0.0f)
-            {
-                if (Mathf.Abs(anglesNeeded) > sweepSpeed)
-                {
-                    return (-1.0f * sweepSpeed);
-                }
-                else
-                {
-                    return anglesNeeded * 0.8f;
-                }
-            }
-            else
-            {
-                // else prevent rotation
-                return 0.0f;
-            }
+            RotatePaddle(nearPaddle);
         }
         else
         {
-            if (arm == PaddleArm.Near)
-            {
-                limit = nearCWSweepMax;
-            }
-            else
-            {
-                limit = farCWSweepMax;
-            }
-            // if lim - des > 0, continue rotation
-            anglesNeeded = limit - angleDesired;
-            if (anglesNeeded >= 0.0f)
-            {
-                if (Mathf.Abs(anglesNeeded) > sweepSpeed)
-                {
-                    return (sweepSpeed);
-                }
-                else
-                {
-                    return anglesNeeded * 0.8f;
-                }
-            }
-            else
-            {
-                // else prevent rotation
-                return 0.0f;
-            }
-
+            diagnosticTwo.text = "0";
         }
+ 
+
     }
 
-    public void SetSweepAngle(float angle)
+    public void RotatePaddle(Transform paddleObject)
     {
-        if (angle < 0.0f) // counterclockwise, negative
+        if (paddleObject != null && paddleObject == nearPaddle)
         {
-            if (angle >= nearCCWSweepMax)
+            if ((Mathf.Abs(nearCommandedAngle) - Mathf.Abs(paddleObject.transform.eulerAngles.y)) > 0.0f)
             {
-                nearTargetSweepAngle = angle;
-            }
-            else
-            {
-                nearTargetSweepAngle = nearCCWSweepMax;
-            }
-            if (angle >= farCCWSweepMax)
-            {
-                farTargetSweepAngle = angle;
-            }
-            else
-            {
-                farTargetSweepAngle = farCCWSweepMax;
+                nearPaddle.rotation = Quaternion.Euler(new Vector3(0.0f, nearCommandedAngle * Time.deltaTime, 0.0f));
             }
         }
-        else // clockwise, positive
-        {
-            if (angle <= nearCWSweepMax)
-            {
-                nearTargetSweepAngle = angle;
-            }
-            else
-            {
-                nearTargetSweepAngle = nearCWSweepMax;
-            }
-            if (angle <= farCWSweepMax)
-            {
-                farTargetSweepAngle = angle;
-            }
-            else
-            {
-                farTargetSweepAngle = farCWSweepMax;
-            }
 
-        }
     }
 
 
-    void SetSweepMax(PaddleArm arm, RotationDirection rotDir, float sweepAngleSetting)
+
+    public bool SweepAngleAchieved(Transform paddleObject, float desiredAngle)
     {
-        if (arm == PaddleArm.Near)
+        if (paddleObject == nearPaddle)
         {
-            if (rotDir == RotationDirection.Clockwise)
+            if (Mathf.Abs(paddleObject.transform.eulerAngles.y - desiredAngle) <= nearEnoughAngleDifference)
             {
-                nearCWSweepMax = sweepAngleSetting;
+                diagnosticOne.text = "T";
+                return true; 
             }
-            else
-            {
-                nearCCWSweepMax = sweepAngleSetting;
+            else {
+                diagnosticOne.text = "F";
+                return false; 
             }
         }
-        else
+        if (paddleObject == farPaddle)
         {
-            if (rotDir == RotationDirection.Clockwise)
-            {
-                farCWSweepMax = sweepAngleSetting;
-            }
-            else
-            {
-                farCCWSweepMax = sweepAngleSetting;
-            }
+            if (Mathf.Abs(paddleObject.transform.eulerAngles.y - desiredAngle) <= nearEnoughAngleDifference)
+            { return true; }
+            else { return false; }
+
         }
+        return true;
     }
 
+    public void CommandSweepAngle(float angle)
+    {
+
+        speaker.PlayOneShot(leverSwipeUpSound, 0.5f);
+        nearCommandedAngle = angle;
+        farCommandedAngle = angle;
+    }
+
+
+ 
   }

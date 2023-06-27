@@ -37,9 +37,14 @@ namespace UnityEngine.XR.Content.Interaction
  
         [SerializeField] List<GameObject> conveyorMachineList;
 
+        [SerializeField] private PackageDirectorDisplay displays;
         [SerializeField] private PackageDirectorMechanical mechanicalControls;
+       
+        public AudioSource speaker;
 
- 
+        public AudioClip leverSound;
+        public AudioClip startupSound;
+
 
 
         // Start is called before the first frame update
@@ -65,6 +70,7 @@ namespace UnityEngine.XR.Content.Interaction
             // m_EmergencyStopButton.onRelease.AddListener();
             m_StartButton.onPress.AddListener(MachineStart);
             m_SpeedDial.onValueChange.AddListener(SetMachineSpeed);
+            Debug.Log("PackageDirectorControls connected");
 
         }
 
@@ -114,17 +120,22 @@ namespace UnityEngine.XR.Content.Interaction
 
         public void LeverUp()
         {
-            mechanicalControls.SetSweepAngle(-60.0f);
+            //speaker.PlayOneShot(leverSound, 0.2f);
+
+            mechanicalControls.CommandSweepAngle(-40.0f);
         }
 
         public void LeverDown()
         {
-            mechanicalControls.SetSweepAngle(60.0f);
+            //speaker.PlayOneShot(leverSound, 0.2f);
+
+            mechanicalControls.CommandSweepAngle(40.0f);
 
         }
 
         public void MachineStart()
         {
+            speaker.PlayOneShot(startupSound, 0.2f);
 
         }
 
