@@ -1220,12 +1220,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nearPaddle: {fileID: 3514213467831887589}
   farPaddle: {fileID: 3514213468732045123}
-  nearCurrentAngle: 0
-  farCurrentAngle: 0
-  nearCCWSweepMax: -55
-  nearCWSweepMax: 30
-  farCCWSweepMax: -15
-  farCWSweepMax: 55
+  nearCurrentAngle: 180
+  farCurrentAngle: 180
+  nearCCWSweepMax: 110
+  nearCWSweepMax: 250
+  farCCWSweepMax: 110
+  farCWSweepMax: 250
   speaker: {fileID: 6925972357286781923}
   leverSwipeUpSound: {fileID: 8300000, guid: d9878b8e173c8af4cbfe09ea36719069, type: 3}
   confirmSuspicionOne: {fileID: 8300000, guid: 5f41a3cd4aaf0904dae25a14529be6ba, type: 3}
@@ -1427,7 +1427,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3514213467831887610}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000058114523}
   m_LocalPosition: {x: -0.119, y: 0, z: -0.489}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1435,7 +1435,7 @@ Transform:
   - {fileID: 3985201863222479603}
   m_Father: {fileID: 3514213468625608793}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &3514213467957506921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1982,7 +1982,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3514213468732045120}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000058114523}
   m_LocalPosition: {x: -0.119, y: 0, z: -0.496}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1990,7 +1990,7 @@ Transform:
   - {fileID: 3985201861870725544}
   m_Father: {fileID: 3514213469260487092}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &3514213468774368874
 GameObject:
   m_ObjectHideFlags: 0
