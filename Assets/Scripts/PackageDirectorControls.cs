@@ -102,6 +102,7 @@ namespace UnityEngine.XR.Content.Interaction
         {
             ConnectControlEvents();
             InitializeControls();
+            LeverUp();
         }
 
         protected void OnDisable()

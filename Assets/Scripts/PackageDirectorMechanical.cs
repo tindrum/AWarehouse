@@ -24,6 +24,7 @@ public class PackageDirectorMechanical : MonoBehaviour
     private float nearCommandedAngle;
     private float farCommandedAngle;
     private float nearEnoughAngleDifference;
+    private float farEnoughAngleDifference;
 
     public AudioSource speaker;
     public AudioClip leverSwipeUpSound;
@@ -55,11 +56,12 @@ public class PackageDirectorMechanical : MonoBehaviour
         //nearPaddle = transform.Find("NearPaddlePivot");
         //farPaddle = transform.Find("FarPaddlePivot");
 
-        nearCommandedAngle = 0.0f;
-        farCommandedAngle = 0.0f;
+        nearCommandedAngle = 180.0f;
+        farCommandedAngle = 180.0f;
 
-        nearEnoughAngleDifference = 3.0f; 
-        degreesPerSecond = 15.0f; // maximum angular speed
+        nearEnoughAngleDifference = 3.0f;
+        farEnoughAngleDifference = 3.0f;
+        degreesPerSecond = 35.0f; // maximum angular speed
 
 
     }
@@ -78,6 +80,7 @@ public class PackageDirectorMechanical : MonoBehaviour
         else
         {
             RotatePaddle(nearPaddle);
+            RotatePaddle(farPaddle);
 
             diagnosticOne.text = "Angle updating";
         }
@@ -132,6 +135,43 @@ public class PackageDirectorMechanical : MonoBehaviour
 
         }
 
+        if (paddleObject != null && paddleObject == farPaddle)
+        {
+            float angleDifference = (farCommandedAngle - paddleObject.transform.eulerAngles.y);
+
+            if (Mathf.Abs(angleDifference) > degreesPerSecond)
+            {                // just spin it at degreesPerSecond
+                spinDegrees = degreesPerSecond;
+
+            }
+            else
+            {
+                // lower than degreesPerSecond
+                spinDegrees = degreesPerSecond * 0.4f;
+
+            }
+
+            if (angleDifference >= 0.0f)
+            {
+                // command positive move
+                farPaddle.Rotate(new Vector3(0, spinDegrees, 0) * Time.deltaTime);
+
+            }
+            else
+            {
+                // command negative move
+                spinDegrees *= -1.0f;
+                farPaddle.Rotate(new Vector3(0, spinDegrees, 0) * Time.deltaTime);
+
+            }
+            if (angleDifference > degreesPerSecond)
+            {
+                // just spin it at degreesPerSecond
+                farPaddle.Rotate(new Vector3(0, degreesPerSecond, 0) * Time.deltaTime);
+                //nearPaddle.rotation = Quaternion.Euler(new Vector3(0.0f, nearCommandedAngle * Time.deltaTime, 0.0f));
+            }
+
+        }
     }
 
 
@@ -153,10 +193,14 @@ public class PackageDirectorMechanical : MonoBehaviour
         }
         if (paddleObject == farPaddle)
         {
-            if (Mathf.Abs(paddleObject.transform.eulerAngles.y - desiredAngle) <= nearEnoughAngleDifference)
-            { return true; }
-            else { return false; }
-
+            if (Mathf.Abs(paddleObject.transform.eulerAngles.y - desiredAngle) <= farEnoughAngleDifference)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         return true;
     }

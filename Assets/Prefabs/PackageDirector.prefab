@@ -1500,10 +1500,10 @@ MonoBehaviour:
   farPaddle: {fileID: 3514213468732045123}
   nearCurrentAngle: 180
   farCurrentAngle: 180
-  nearCCWSweepMax: 110
-  nearCWSweepMax: 250
-  farCCWSweepMax: 110
-  farCWSweepMax: 250
+  nearCCWSweepMax: 120
+  nearCWSweepMax: 240
+  farCCWSweepMax: 120
+  farCWSweepMax: 240
   speaker: {fileID: 6925972357286781923}
   leverSwipeUpSound: {fileID: 8300000, guid: d9878b8e173c8af4cbfe09ea36719069, type: 3}
   confirmSuspicionOne: {fileID: 8300000, guid: 5f41a3cd4aaf0904dae25a14529be6ba, type: 3}
