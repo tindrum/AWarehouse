@@ -131,11 +131,10 @@ public class BarcodeScannerBehavior : MonoBehaviour
 
     public void GetBoxData(RaycastHit hit)
     {
-        string first = hit.transform.gameObject.GetComponent<ThisIsComment>().First;
-        //lastReading_firstname = hit.transform.gameObject.commentData.First();
-       // lastReading_firstname = "sue";
-        lastReading_country = "Korea";
-        lastReading_nice = false;
+        lastReading_firstname = hit.transform.gameObject.GetComponent<ThisIsComment>().First;
+        lastReading_country = hit.transform.gameObject.GetComponent<ThisIsComment>().Country;
+        lastReading_nice = hit.transform.gameObject.GetComponent<ThisIsComment>().Nice;
+
 
     }
 
@@ -144,11 +143,11 @@ public class BarcodeScannerBehavior : MonoBehaviour
         display_country.text = lastReading_country;
         if (lastReading_nice)
         {
-            display_country.text = "Nice";
+            display_nice.text = "Nice";
         }
         else
         {
-            display_country.text = "Naughty";
+            display_nice.text = "Naughty";
         }
     }
 }

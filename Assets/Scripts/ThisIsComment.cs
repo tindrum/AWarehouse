@@ -22,7 +22,7 @@ public class ThisIsComment : MonoBehaviour
 
     public string Country;
 
-    public bool Nice = true;
+    public bool Nice;
 
     private PersonalPerson thisPerson;
 

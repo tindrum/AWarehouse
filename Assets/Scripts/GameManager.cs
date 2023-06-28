@@ -15,4 +15,9 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    void IncreaseArrivalSpeed()
+    {
+
+    }
 }

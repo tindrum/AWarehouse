@@ -11,6 +11,7 @@ public class ArrivalDock : MonoBehaviour
     public GameObject arrivalSpot;
     public List<GameObject> packagePrefabList;
     public GameObject defaultBoxType;
+    public bool randomRotation;
     //private Timer timer;
 
     // Start is called before the first frame update
@@ -51,7 +52,12 @@ public class ArrivalDock : MonoBehaviour
         if (accumulatedTime > timerSeconds)
         {
             //Debug.Log("$$$PushpackageOut()");
-
+            //
+            // Randomly rotate packages
+            if (randomRotation)
+            {
+                arrivalSpot.transform.rotation = Random.rotation;
+            }
             pushPackageOut();
             accumulatedTime -= timerSeconds;
             //Debug.Log("$$$$: " + accumulatedTime);

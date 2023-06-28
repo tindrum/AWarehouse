@@ -59,9 +59,9 @@ public class PackageDirectorMechanical : MonoBehaviour
         nearCommandedAngle = 180.0f;
         farCommandedAngle = 180.0f;
 
-        nearEnoughAngleDifference = 3.0f;
-        farEnoughAngleDifference = 3.0f;
-        degreesPerSecond = 35.0f; // maximum angular speed
+        nearEnoughAngleDifference = 6.0f;
+        farEnoughAngleDifference = 6.0f;
+        degreesPerSecond = 45.0f; // maximum angular speed
 
 
     }
@@ -105,7 +105,7 @@ public class PackageDirectorMechanical : MonoBehaviour
             else
             {
                 // lower than degreesPerSecond
-                spinDegrees = degreesPerSecond * 0.4f;
+                spinDegrees = degreesPerSecond * 0.8f;
 
             }
             labelThree.text = "spinDegrees: ";
@@ -147,7 +147,7 @@ public class PackageDirectorMechanical : MonoBehaviour
             else
             {
                 // lower than degreesPerSecond
-                spinDegrees = degreesPerSecond * 0.4f;
+                spinDegrees = degreesPerSecond * 0.8f;
 
             }
 

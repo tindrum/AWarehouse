@@ -46,7 +46,6 @@ GameObject:
   - component: {fileID: 1430249755284908000}
   - component: {fileID: 6963654751220917314}
   - component: {fileID: 1782324643260191684}
-  - component: {fileID: 8372369213976460276}
   m_Layer: 0
   m_Name: beltEndCylinder
   m_TagString: Untagged
@@ -132,28 +131,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 2.0000005, z: 1.0000005}
   m_Center: {x: 0.000000059604645, y: 0.000000029802322, z: -0.0000010430813}
---- !u!114 &8372369213976460276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3272820862038505584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bddef5a994116be4ba93804b7b810adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisBox: {fileID: 0}
-  speed: 41
-  direction: {x: 1, y: 0, z: 0}
-  onBelt: []
-  boxCountText: {fileID: 0}
-  testBeeper: {fileID: 0}
-  soundAdded: {fileID: 8300000, guid: 8d5c617c0a845eb4bb8df15a075d3830, type: 3}
-  soundRemoved: {fileID: 8300000, guid: 68fb34f6c9389d740b46682fa15cbff6, type: 3}
-  hasCoMsoundAdded: {fileID: 8300000, guid: aeebf9f35b9b66a45945c9300732d5d6, type: 3}
-  hasCoMsoundRemoved: {fileID: 8300000, guid: 58dfbf8a948f1ed458c73ba5a27941a7, type: 3}
 --- !u!1 &3642693847299615655
 GameObject:
   m_ObjectHideFlags: 0
