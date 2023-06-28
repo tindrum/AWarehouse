@@ -114,20 +114,20 @@ public class PackageDirectorMechanical : MonoBehaviour
             if (angleDifference >= 0.0f)
             {
                 // command positive move
-                nearPaddle.Rotate(new Vector3(0, spinDegrees, 0) * Time.deltaTime);
+                nearPaddle.Rotate((new Vector3(0, spinDegrees, 0) * Time.deltaTime), Space.Self);
 
             }
             else
             {
                 // command negative move
                 spinDegrees *= -1.0f;
-                nearPaddle.Rotate(new Vector3(0, spinDegrees, 0) * Time.deltaTime);
+                nearPaddle.Rotate(new Vector3(0, spinDegrees, 0) * Time.deltaTime, Space.Self);
 
             }
              if (angleDifference > degreesPerSecond)
             {
                 // just spin it at degreesPerSecond
-                nearPaddle.Rotate(new Vector3(0, degreesPerSecond, 0) * Time.deltaTime);
+                nearPaddle.Rotate(new Vector3(0, degreesPerSecond, 0) * Time.deltaTime, Space.Self);
                 //nearPaddle.rotation = Quaternion.Euler(new Vector3(0.0f, nearCommandedAngle * Time.deltaTime, 0.0f));
             }
             labelFour.text = "final spinDegrees";
@@ -154,20 +154,20 @@ public class PackageDirectorMechanical : MonoBehaviour
             if (angleDifference >= 0.0f)
             {
                 // command positive move
-                farPaddle.Rotate(new Vector3(0, spinDegrees, 0) * Time.deltaTime);
+                farPaddle.Rotate(new Vector3(0, spinDegrees, 0) * Time.deltaTime, Space.Self);
 
             }
             else
             {
                 // command negative move
                 spinDegrees *= -1.0f;
-                farPaddle.Rotate(new Vector3(0, spinDegrees, 0) * Time.deltaTime);
+                farPaddle.Rotate(new Vector3(0, spinDegrees, 0) * Time.deltaTime, Space.Self);
 
             }
             if (angleDifference > degreesPerSecond)
             {
                 // just spin it at degreesPerSecond
-                farPaddle.Rotate(new Vector3(0, degreesPerSecond, 0) * Time.deltaTime);
+                farPaddle.Rotate(new Vector3(0, degreesPerSecond, 0) * Time.deltaTime, Space.Self);
                 //nearPaddle.rotation = Quaternion.Euler(new Vector3(0.0f, nearCommandedAngle * Time.deltaTime, 0.0f));
             }
 
