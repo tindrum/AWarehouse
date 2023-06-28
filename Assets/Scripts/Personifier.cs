@@ -70,7 +70,9 @@ public class Personifier : MonoBehaviour
             "Peru",
             "Bolivia",
             "Costa Rica",
-            "Norway"
+            "Norway",
+            "Kenya",
+            "Thailand"
         });
     }
 
@@ -88,6 +90,34 @@ public class Personifier : MonoBehaviour
             return null;
         }
         // return First[UnityEngine.Random.Range(0, First.Count)];
+    }
+
+    public string oneCountry()
+    {
+        string country = string.Empty;
+        country = new string(Country[UnityEngine.Random.Range(0, Country.Count)]);
+        if (!string.IsNullOrEmpty(country))
+        {
+            return country;
+        }
+        else
+        {
+            Debug.Log("The string is not an object");
+            return null;
+        }
+    }
+
+    public bool oneNaughtyOrNice()
+    {
+        int mostlyNice = UnityEngine.Random.Range(0, 10);
+        if (mostlyNice > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }

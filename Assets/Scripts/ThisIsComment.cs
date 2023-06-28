@@ -8,7 +8,7 @@ using System;
 public class ThisIsComment : MonoBehaviour
 {
     // [SerializeField] public PersonalPerson personalPerson;
-    [SerializeField] private static Personifier personifier;
+    [SerializeField] private Personifier personifier;
 
 
     //https://www.codeproject.com/Tips/1208852/How-to-Add-Comments-Notes-to-a-GameObject-in-Unity
@@ -29,7 +29,9 @@ public class ThisIsComment : MonoBehaviour
     void Start()
     {
         //thisPerson = new PersonalPerson();
-        First = Personifier.oneFirstName();
+        First = Personifier.Instance.oneFirstName();
+        Country = Personifier.Instance.oneCountry();
+        Nice = Personifier.Instance.oneNaughtyOrNice();
         // First = thisPerson.first;
     }
 }
