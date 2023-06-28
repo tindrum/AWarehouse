@@ -30,7 +30,7 @@ Hoping notes are script-readable and script-writable.
 This code is apparantly some kind of open-source:
 This article, along with any associated source code and files, is licensed under The Code Project Open License (CPOL).
 My lawyer will read the actual license terms when I'm rich.
-https://www.codeproject.com/Tips/1208852/How-to-Add-Comments-Notes-to-a-GameObject-in-Unity#:~:text=In%20order%20to%20add%20a%20note%20to%20a,window%29.%20Here%20is%20an%20example%3A%20...%20More%20items
+https://www.codeproject.com/Tips/1208852/How-to-Add-Comments-Notes-to-a-GameObject-in-Unity
 
 ### Raycasting Explained
 Nice simpler explanation of raycasting. 
