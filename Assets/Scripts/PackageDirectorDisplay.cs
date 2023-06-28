@@ -12,8 +12,8 @@ public class PackageDirectorDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        displayOne = transform.Find("infoScreen").gameObject;
-        displayTwo = transform.Find("infoTwo").gameObject;
+        //displayOne = transform.Find("infoScreen").gameObject;
+        //displayTwo = transform.Find("infoTwo").gameObject;
 
     }
 

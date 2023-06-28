@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 902986861355055961}
   - component: {fileID: 6076612664339926781}
   - component: {fileID: 5260993824995213757}
+  - component: {fileID: 1912829274077355644}
   m_Layer: 0
   m_Name: small_box
   m_TagString: Boxes
@@ -66,7 +67,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7427039920919591082}
-  - {fileID: 6951923655690479800}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -450, y: 0, z: 0}
@@ -297,52 +297,21 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1480277468573727519, guid: 3146d451e404ba04ca131968ee81a2a8, type: 3}
---- !u!1 &8903757002333382851
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6951923655690479800}
-  - component: {fileID: 1947382410205409839}
-  m_Layer: 0
-  m_Name: AddressInfo
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6951923655690479800
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8903757002333382851}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 428787073991329195}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1947382410205409839
+--- !u!114 &1912829274077355644
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8903757002333382851}
+  m_GameObject: {fileID: 1060750814797635345}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1f4e5d142b4b5846a28c516144b22a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Notes: 'Ship to:
-
-    Chuck Mangione
-
-    Poughkeepsie, New York'
+  personifier: {fileID: 0}
+  Notes: Comment Here.
+  First: 
+  Last: 
+  Country: 
+  Nice: 1
