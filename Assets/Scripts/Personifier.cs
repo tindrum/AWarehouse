@@ -60,19 +60,41 @@ public class Personifier : MonoBehaviour
             "Tierney",
             "Dominic",
             "Lauren",
-            "Whitney"
+            "Whitney",
+            "Deborah",
+            "Eddie",
+            "Dale",
+            "Kyle",
+            "Vikram",
+            "Jeff",
+            "Sharon",
+            "Michele",
+            "Michelle",
+            "Bronwyn",
+            "Vicki",
+            "Hannah",
+            "Ray",
+            "Kiya",
+            "Chaska",
+            "Maria",
+            "Justin",
+            "Valem",
+            "Andrew",
+            "Lawrence",
+            "Bobby",
+            "Amber",
+            "Lynn",
+            "Claire"
         });
     }
 
     void makeCountryList()
     {
         Country = new List<string>(new string[] {
-            "Peru",
-            "Bolivia",
-            "Costa Rica",
-            "Norway",
-            "Kenya",
-            "Thailand"
+            "Brazil",
+            "Ukraine",
+            "Tunisia",
+            "India"
         });
     }
 

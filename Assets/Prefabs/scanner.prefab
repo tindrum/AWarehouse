@@ -363,6 +363,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 3643470372338379145}
+        m_TargetAssemblyTypeName: BarcodeScannerBehavior, Assembly-CSharp
+        m_MethodName: StartScanRead
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -456,12 +468,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raycastOrigin: {fileID: 652633104272080551}
   scannerDistanceRange: 1
+  minAngleDifference: 30
+  lastReading_firstname: 
+  lastReading_country: 
+  lastReading_nice: 0
   scanSound: {fileID: 8300000, guid: 6517deed7be740743a2c342fa5339205, type: 3}
   scanBarcodeScanned: {fileID: 8300000, guid: 12b7f71d1b1e6ba46a065a94cab11e4a, type: 3}
   scanNoBarcode: {fileID: 8300000, guid: 43ad184d255c63f408e88a37f610fe74, type: 3}
   scanStateOne: {fileID: 8300000, guid: 9469a2b27835aa14699423016331c10d, type: 3}
   scanStateTwo: {fileID: 8300000, guid: bcd35af2a833c3a4cb0588d4f6e2cf98, type: 3}
   scanStateThree: {fileID: 8300000, guid: 43ca24f62bd27d04c9ebb99fe903a546, type: 3}
+  display_name: {fileID: 0}
+  display_country: {fileID: 0}
+  display_textThree: {fileID: 0}
+  display_nice: {fileID: 0}
+  speaker: {fileID: 3998679617106188036}
 --- !u!1 &4093232515710245544
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,7 +507,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4093232515710245544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.10664, z: 0.1603}
+  m_LocalPosition: {x: 0, y: 0.10664, z: 0.159}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -673,7 +694,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.4394693
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
