@@ -15,12 +15,12 @@ public class PackageDirectorMechanical : MonoBehaviour
     [SerializeField] private float farCurrentAngle;
 
     // angle of max sweep of arms. 
-    [SerializeField] private float nearCCWSweepMax;
-    [SerializeField] private float nearCWSweepMax;
-    [SerializeField] private float farCCWSweepMax;
-    [SerializeField] private float farCWSweepMax;
+    [SerializeField] public float nearCCWSweepMax;
+    [SerializeField] public float nearCWSweepMax;
+    [SerializeField] public float farCCWSweepMax;
+    [SerializeField] public float farCWSweepMax;
 
-    private float sweepSpeed;
+    private float degreesPerSecond;
     private float nearCommandedAngle;
     private float farCommandedAngle;
     private float nearEnoughAngleDifference;
@@ -39,6 +39,10 @@ public class PackageDirectorMechanical : MonoBehaviour
     public TMP_Text diagnosticThree;
     public TMP_Text diagnosticFour;
     public TMP_Text diagnosticFive;
+    public TMP_Text labelTwo;
+    public TMP_Text labelThree;
+    public TMP_Text labelFour;
+    public TMP_Text labelFive;
     public TMP_Text diagnosticNearAngle;
     public TMP_Text diagnosticNearCommandedAngle;
 
@@ -55,48 +59,77 @@ public class PackageDirectorMechanical : MonoBehaviour
         farCommandedAngle = 0.0f;
 
         nearEnoughAngleDifference = 3.0f; 
-        sweepSpeed = 0.5f; // maximum angular speed
+        degreesPerSecond = 15.0f; // maximum angular speed
 
-        diagnosticOne.text = "Start()";
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        diagnosticOne.text = "Update()";
         diagnosticNearAngle.text = nearPaddle.transform.eulerAngles.y.ToString();
         diagnosticNearCommandedAngle.text = nearCommandedAngle.ToString();
 
-        if (!SweepAngleAchieved(nearPaddle, nearCommandedAngle))
+        if (SweepAngleAchieved(nearPaddle, nearCommandedAngle))
         {
-            diagnosticOne.text = "Update() !SAA true";
+            diagnosticOne.text = "Angle OK";
 
-            RotatePaddle(nearPaddle);
         }
         else
         {
-            diagnosticOne.text = "Update() !SAA false";
+            RotatePaddle(nearPaddle);
+
+            diagnosticOne.text = "Angle updating";
         }
 
     }
 
     public void RotatePaddle(Transform paddleObject)
-    {
-        diagnosticFive.text = "RotatePaddle()";
-
+    { // use Diagnostid Two, Three, Four and their labels; leave others for other status
+        float spinDegrees;
+ 
         if (paddleObject != null && paddleObject == nearPaddle)
         {
-            diagnosticThree.text = "RP notNull & nearPaddle";
-            float angleDifference = (Mathf.Abs(nearCommandedAngle) - Mathf.Abs(paddleObject.transform.eulerAngles.y));
-            diagnosticFour.text = angleDifference.ToString();
-            if (angleDifference > 0.0f)
-            {
-                diagnosticThree.text = "RP rotate";
-                diagnosticTwo.text = nearCommandedAngle.ToString();
+            float angleDifference = (nearCommandedAngle - paddleObject.transform.eulerAngles.y);
+            labelTwo.text = "RotPaddle: Angle difference";
+            diagnosticTwo.text = angleDifference.ToString();
 
-                nearPaddle.rotation = Quaternion.Euler(new Vector3(0.0f, nearCommandedAngle * Time.deltaTime, 0.0f));
+            if (Mathf.Abs(angleDifference) > degreesPerSecond)
+            {                // just spin it at degreesPerSecond
+                spinDegrees = degreesPerSecond;
+
             }
+            else
+            {
+                // lower than degreesPerSecond
+                spinDegrees = degreesPerSecond * 0.4f;
+
+            }
+            labelThree.text = "spinDegrees: ";
+            diagnosticThree.text = spinDegrees.ToString();
+
+            if (angleDifference >= 0.0f)
+            {
+                // command positive move
+                nearPaddle.Rotate(new Vector3(0, spinDegrees, 0) * Time.deltaTime);
+
+            }
+            else
+            {
+                // command negative move
+                spinDegrees *= -1.0f;
+                nearPaddle.Rotate(new Vector3(0, spinDegrees, 0) * Time.deltaTime);
+
+            }
+             if (angleDifference > degreesPerSecond)
+            {
+                // just spin it at degreesPerSecond
+                nearPaddle.Rotate(new Vector3(0, degreesPerSecond, 0) * Time.deltaTime);
+                //nearPaddle.rotation = Quaternion.Euler(new Vector3(0.0f, nearCommandedAngle * Time.deltaTime, 0.0f));
+            }
+            labelFour.text = "final spinDegrees";
+            diagnosticFour.text = spinDegrees.ToString();
+
         }
 
     }
@@ -105,16 +138,16 @@ public class PackageDirectorMechanical : MonoBehaviour
 
     public bool SweepAngleAchieved(Transform paddleObject, float desiredAngle)
     {
-        diagnosticFive.text = "SweepAngleAchieved()";
+        labelFive.text = "SweepAngleAchieved()";
         if (paddleObject == nearPaddle)
         {
             if (Mathf.Abs(paddleObject.transform.eulerAngles.y - desiredAngle) <= nearEnoughAngleDifference)
             {
-                diagnosticOne.text = "T";
+                diagnosticFive.text = "near enough";
                 return true; 
             }
             else {
-                diagnosticOne.text = "F";
+                diagnosticFive.text = "not near enough";
                 return false; 
             }
         }

@@ -45,6 +45,8 @@ namespace UnityEngine.XR.Content.Interaction
         public AudioClip leverSound;
         public AudioClip startupSound;
 
+        
+
 
 
         // Start is called before the first frame update
@@ -59,6 +61,7 @@ namespace UnityEngine.XR.Content.Interaction
             // conveyorSpeed = 0.8f;
 
             //LeverMoved += OnLeverMoved;
+
             
         }
 
@@ -122,14 +125,14 @@ namespace UnityEngine.XR.Content.Interaction
         {
             //speaker.PlayOneShot(leverSound, 0.2f);
 
-            mechanicalControls.CommandSweepAngle(-40.0f);
+            mechanicalControls.CommandSweepAngle(mechanicalControls.nearCCWSweepMax);
         }
 
         public void LeverDown()
         {
             //speaker.PlayOneShot(leverSound, 0.2f);
 
-            mechanicalControls.CommandSweepAngle(40.0f);
+            mechanicalControls.CommandSweepAngle(mechanicalControls.nearCWSweepMax);
 
         }
 
