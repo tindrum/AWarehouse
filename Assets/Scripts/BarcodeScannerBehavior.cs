@@ -54,9 +54,9 @@ public class BarcodeScannerBehavior : MonoBehaviour
         speaker.PlayOneShot(scanBarcodeScanned, 0.9f);
     }
 
-    public void StartScanRead() 
+    public void StartScanRead()
     {
-         speaker.PlayOneShot(scanSound, 1.0f);
+        speaker.PlayOneShot(scanSound, 1.0f);
 
     }
 
@@ -64,7 +64,7 @@ public class BarcodeScannerBehavior : MonoBehaviour
 
 
 
-public void BarcodeScan()
+    public void BarcodeScan()
     {
         // Layer mask for boxes and box blockers
         // speaker.PlayOneShot(scanSound, 0.9f);
@@ -81,6 +81,9 @@ public void BarcodeScan()
                 float angleDifference = Vector3.Angle(raycastOrigin.forward, hit.transform.gameObject.transform.forward);
                 if (angleDifference <= minAngleDifference)
                 {
+                    // Get data from box
+
+
                     // the angle will be up near 180 if the label is facing right at the scanner
                     ScanReadOK();
                 }
@@ -108,4 +111,8 @@ public void BarcodeScan()
         }
 
     }
+
+    public void DisplayBoxData() {
+
+        }
 }
