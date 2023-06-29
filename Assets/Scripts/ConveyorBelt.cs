@@ -19,27 +19,31 @@ public class ConveyorBelt : MonoBehaviour
     public AudioClip hasCoMsoundAdded;
     public AudioClip hasCoMsoundRemoved;
 
+    // belt material animation
+    public float directionVector1;
+    public float directionVector2;
+    private Material material;
+    public float materialAnimationSpeed;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         // GameObject thisBox = Instantiate
+        // belt material animation
+        material = GetComponent<MeshRenderer>().material;
     }
 
     // Update is called once per frame
     void Update()
     {
- //       foreach(GameObject box in onBelt)
-   //     {
-     //       box.GetComponent<Rigidbody>().velocity = speed * direction * Time.deltaTime;
-       // }
-
-
         foreach (GameObject box in onBelt)
         {
                 box.GetComponent<Rigidbody>().velocity = speed * direction * Time.deltaTime;
         }
+        // belt material animation
+        GetComponent<MeshRenderer>().material.mainTextureOffset += new Vector2(1, 0) * materialAnimationSpeed * Time.deltaTime;
     }
 
     // When something collides with the belt
@@ -58,7 +62,7 @@ public class ConveyorBelt : MonoBehaviour
             {
                 testBeeper.GetComponent<AudioSource>().PlayOneShot(hasCoMsoundAdded, 0.01f);
             }
-            collision.gameObject.GetComponent<BoxCenterOfMass>().LowerCenterOfMass();
+            // collision.gameObject.GetComponent<BoxCenterOfMass>().LowerCenterOfMass();
         }
         //collision.gameObject.GetComponent<BoxCenterOfMass>().LowerCenterOfMass();
         // this test works syntactically: !onBelt.Contains(collision.gameObject
@@ -91,7 +95,7 @@ public class ConveyorBelt : MonoBehaviour
                 testBeeper.GetComponent<AudioSource>().PlayOneShot(hasCoMsoundRemoved, 0.01f);
             }
 
-            collision.gameObject.GetComponent<BoxCenterOfMass>().ResetCenterOfMass();
+            // collision.gameObject.GetComponent<BoxCenterOfMass>().ResetCenterOfMass();
         }
         if (testBeeper != null)
         {

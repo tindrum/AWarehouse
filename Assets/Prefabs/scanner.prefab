@@ -313,7 +313,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 128
+    m_Bits: 1
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
@@ -476,9 +476,12 @@ MonoBehaviour:
   scanSound: {fileID: 8300000, guid: 6517deed7be740743a2c342fa5339205, type: 3}
   scanBarcodeScanned: {fileID: 8300000, guid: 12b7f71d1b1e6ba46a065a94cab11e4a, type: 3}
   scanNoBarcode: {fileID: 8300000, guid: 43ad184d255c63f408e88a37f610fe74, type: 3}
-  scanStateOne: {fileID: 8300000, guid: 9469a2b27835aa14699423016331c10d, type: 3}
-  scanStateTwo: {fileID: 8300000, guid: bcd35af2a833c3a4cb0588d4f6e2cf98, type: 3}
-  scanStateThree: {fileID: 8300000, guid: 43ca24f62bd27d04c9ebb99fe903a546, type: 3}
+  BrazilBleep: {fileID: 0}
+  IndiaBleep: {fileID: 0}
+  TunisiaBleep: {fileID: 0}
+  UkraineBleep: {fileID: 0}
+  PirateBleep: {fileID: 0}
+  errorBleep: {fileID: 0}
   display_name: {fileID: 0}
   display_country: {fileID: 0}
   display_textThree: {fileID: 0}
