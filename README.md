@@ -14,6 +14,8 @@ The team members are
 
 # Asset Sources
 ## Models and images
+### Country flags from Wikicommons
+
 ### Warehouse model from Dosch Design Royalty-free 3D-models for 3D-design and animation DVD
 I bought some 3D assets on physical CD-Roms for a batmitzvah I worked for Nadine Ramsay's friend's kid. 
 My brother and I made a stereo digital camera, and J. Cook made some scripts to pair the images up.

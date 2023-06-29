@@ -61,7 +61,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3272820862038505584}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2, y: -0.029000044, z: 0.001000002}
+  m_LocalPosition: {x: 2, y: -0.025, z: 0.001000002}
   m_LocalScale: {x: 0.1, y: 0.46, z: 0.10000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -805,7 +805,7 @@ MonoBehaviour:
   speed: 40
   direction: {x: 1, y: 0, z: 0}
   onBelt: []
-  boxCountText: {fileID: 0}
+  boxCountText: {fileID: 3062015236795552436}
   testBeeper: {fileID: 0}
   soundAdded: {fileID: 8300000, guid: 8d5c617c0a845eb4bb8df15a075d3830, type: 3}
   soundRemoved: {fileID: 8300000, guid: 68fb34f6c9389d740b46682fa15cbff6, type: 3}
@@ -834,8 +834,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8696959251869551317}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.70710784}
+  m_LocalPosition: {x: -0.89299965, y: 0.076, z: -0.8929973}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -844,4 +844,4 @@ Transform:
   - {fileID: 8325862286629220648}
   m_Father: {fileID: 4690195025379051169}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}

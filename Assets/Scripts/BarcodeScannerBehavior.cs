@@ -36,6 +36,18 @@ public class BarcodeScannerBehavior : MonoBehaviour
     [SerializeField] private TMP_Text display_country;
     [SerializeField] private TMP_Text display_textThree;
     [SerializeField] private TMP_Text display_nice;
+    // image display
+    [SerializeField] private Image FlagImage;
+    [SerializeField] private Texture2D IndiaFlag;
+    [SerializeField] private Texture2D UkraineFlag;
+    [SerializeField] private Texture2D TunisiaFlag;
+    [SerializeField] private Texture2D BrazilFlag;
+    [SerializeField] private Texture2D PirateFlag;
+    private Sprite IndiaFlagSprite;
+    private Sprite TunisiaFlagSprite;
+    private Sprite UkraineFlagSprite;
+    private Sprite BrazilFlagSprite;
+    private Sprite PirateFlagSprite;
 
 
 
@@ -45,6 +57,8 @@ public class BarcodeScannerBehavior : MonoBehaviour
     void Start()
     {
         // speaker = GetComponent<AudioSource>();
+        IndiaFlagSprite = Sprite.Create(IndiaFlag, new Rect(0, 0, IndiaFlag.width, IndiaFlag.height), Vector2.zero);
+        PirateFlagSprite = Sprite.Create(PirateFlag, new Rect(0, 0, PirateFlag.width, PirateFlag.height), Vector2.zero);
     }
 
     // Update is called once per frame
@@ -141,6 +155,26 @@ public class BarcodeScannerBehavior : MonoBehaviour
     public void DisplayBoxData() {
         display_name.text = lastReading_firstname; 
         display_country.text = lastReading_country;
+        // set flag image
+        switch (lastReading_country)
+        {
+        case "Tunisia":
+            FlagImage.overrideSprite = TunisiaFlagSprite;
+            break;
+        case "Ukraine":
+            FlagImage.overrideSprite = UkraineFlagSprite;
+            break;
+        case "India":
+            FlagImage.overrideSprite = IndiaFlagSprite;
+            break;
+        case "Brazil":
+            FlagImage.overrideSprite = BrazilFlagSprite;
+            break;
+        default:
+            FlagImage.overrideSprite = PirateFlagSprite;
+            break;
+        }
+
         if (lastReading_nice)
         {
             display_nice.text = "Nice";

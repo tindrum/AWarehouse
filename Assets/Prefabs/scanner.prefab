@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 1135638234618951040}
   m_LocalRotation: {x: 0.06975647, y: 0, z: 0, w: 0.9975641}
   m_LocalPosition: {x: 0, y: -0.0064, z: 0.03}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.84023, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8674029431195798282}
@@ -469,6 +469,7 @@ MonoBehaviour:
   raycastOrigin: {fileID: 652633104272080551}
   scannerDistanceRange: 1
   minAngleDifference: 30
+  commentData: {fileID: 0}
   lastReading_firstname: 
   lastReading_country: 
   lastReading_nice: 0
@@ -482,6 +483,12 @@ MonoBehaviour:
   display_country: {fileID: 0}
   display_textThree: {fileID: 0}
   display_nice: {fileID: 0}
+  FlagImage: {fileID: 0}
+  IndiaFlag: {fileID: 2800000, guid: 279af412f91638c49b80a41cacd9de9d, type: 3}
+  UkraineFlag: {fileID: 2800000, guid: 2f1f92151255bac45b12aa7bad5972dc, type: 3}
+  TunisiaFlag: {fileID: 2800000, guid: 7be6e858605e0fd4395ebf9331676eec, type: 3}
+  BrazilFlag: {fileID: 2800000, guid: 856d618861376934b91c792f64e30f38, type: 3}
+  PirateFlag: {fileID: 2800000, guid: 2768a95dad2607b4e99cf219aea1482d, type: 3}
   speaker: {fileID: 3998679617106188036}
 --- !u!1 &4093232515710245544
 GameObject:
