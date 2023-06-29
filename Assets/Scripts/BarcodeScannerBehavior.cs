@@ -26,10 +26,14 @@ public class BarcodeScannerBehavior : MonoBehaviour
     public AudioClip scanBarcodeScanned;
     public AudioClip scanNoBarcode;
 
-    // scan diagnose sounds
-    public AudioClip scanStateOne;
-    public AudioClip scanStateTwo;
-    public AudioClip scanStateThree;
+    // scan country bleep sounds
+    public AudioClip BrazilBleep;
+    public AudioClip IndiaBleep;
+    public AudioClip TunisiaBleep;
+    public AudioClip UkraineBleep;
+    public AudioClip PirateBleep;
+
+    public AudioClip errorBleep;
 
     // scanner display
     [SerializeField] private TMP_Text display_name;
@@ -58,6 +62,9 @@ public class BarcodeScannerBehavior : MonoBehaviour
     {
         // speaker = GetComponent<AudioSource>();
         IndiaFlagSprite = Sprite.Create(IndiaFlag, new Rect(0, 0, IndiaFlag.width, IndiaFlag.height), Vector2.zero);
+        TunisiaFlagSprite = Sprite.Create(TunisiaFlag, new Rect(0, 0, TunisiaFlag.width, TunisiaFlag.height), Vector2.zero);
+        BrazilFlagSprite = Sprite.Create(BrazilFlag, new Rect(0, 0, BrazilFlag.width, BrazilFlag.height), Vector2.zero);
+        UkraineFlagSprite = Sprite.Create(UkraineFlag, new Rect(0, 0, UkraineFlag.width, UkraineFlag.height), Vector2.zero);
         PirateFlagSprite = Sprite.Create(PirateFlag, new Rect(0, 0, PirateFlag.width, PirateFlag.height), Vector2.zero);
     }
 
@@ -70,6 +77,36 @@ public class BarcodeScannerBehavior : MonoBehaviour
         // }
     }
 
+    public void CountryScanBleep(string country)
+    {
+        if (lastReading_nice)
+        {
+            switch (lastReading_country)
+            {
+                case "Tunisia":
+                    speaker.PlayOneShot(TunisiaBleep, 0.5f);
+                    break;
+                case "Ukraine":
+                    speaker.PlayOneShot(UkraineBleep, 0.5f);
+                    break;
+                case "India":
+                    speaker.PlayOneShot(IndiaBleep, 0.5f);
+                    break;
+                case "Brazil":
+                    speaker.PlayOneShot(BrazilBleep, 0.5f);
+                    break;
+                default:
+                    speaker.PlayOneShot(errorBleep, 0.5f);
+                    break;
+            }
+        }
+        else
+        {
+            // bad kids get pirate flag
+            speaker.PlayOneShot(PirateBleep, 0.5f);
+        }
+    }
+
     public void NoScanRead()
     {
         speaker.PlayOneShot(scanNoBarcode, 0.5f);
@@ -77,7 +114,7 @@ public class BarcodeScannerBehavior : MonoBehaviour
 
     public void BadScanRead()
     {
-        speaker.PlayOneShot(scanStateThree, 0.5f);
+        speaker.PlayOneShot(errorBleep, 0.5f);
     }
 
     public void ScanReadOK()
@@ -116,7 +153,8 @@ public class BarcodeScannerBehavior : MonoBehaviour
                     // Get data from box
                     GetBoxData(hit);
                     DisplayBoxData();
-                    ScanReadOK();
+                    CountryScanBleep(lastReading_country);
+                    // ScanReadOK();
                 }
             }
             else
@@ -137,8 +175,8 @@ public class BarcodeScannerBehavior : MonoBehaviour
         else
         {
             Debug.DrawRay(raycastOrigin.position, raycastOrigin.position * 1000, Color.red);
-
-            NoScanRead();
+            BadScanRead();
+            // NoScanRead();
         }
 
     }
@@ -152,27 +190,40 @@ public class BarcodeScannerBehavior : MonoBehaviour
 
     }
 
+    public void Bleep(RaycastHit hit)
+    {
+
+    }
+
     public void DisplayBoxData() {
         display_name.text = lastReading_firstname; 
         display_country.text = lastReading_country;
         // set flag image
-        switch (lastReading_country)
+        if (lastReading_nice)
         {
-        case "Tunisia":
-            FlagImage.overrideSprite = TunisiaFlagSprite;
-            break;
-        case "Ukraine":
-            FlagImage.overrideSprite = UkraineFlagSprite;
-            break;
-        case "India":
-            FlagImage.overrideSprite = IndiaFlagSprite;
-            break;
-        case "Brazil":
-            FlagImage.overrideSprite = BrazilFlagSprite;
-            break;
-        default:
+            switch (lastReading_country)
+            {
+                case "Tunisia":
+                    FlagImage.overrideSprite = TunisiaFlagSprite;
+                    break;
+                case "Ukraine":
+                    FlagImage.overrideSprite = UkraineFlagSprite;
+                    break;
+                case "India":
+                    FlagImage.overrideSprite = IndiaFlagSprite;
+                    break;
+                case "Brazil":
+                    FlagImage.overrideSprite = BrazilFlagSprite;
+                    break;
+                default:
+                    FlagImage.overrideSprite = PirateFlagSprite;
+                    break;
+            }
+        }
+        else
+        {
+            // bad kids get pirate flag
             FlagImage.overrideSprite = PirateFlagSprite;
-            break;
         }
 
         if (lastReading_nice)
