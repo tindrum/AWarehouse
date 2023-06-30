@@ -4657,13 +4657,14 @@ MonoBehaviour:
   boxThresholdEventCount: 5
   shipThreshodEventCount: 10
   levelUpThreshold: 21
-  speedIncreaseMultiplier: 0.9
+  speedIncreaseMultiplier: 0.98
   minimumRoundCount: 17
   minimumPercentageShippedAllowed: 0
-  lightGameObject: {fileID: 0}
+  lightGameObject: {fileID: 410087039}
   headline: {fileID: 1518782099}
   firedReason: {fileID: 1064021740}
   boxCountDisplay: {fileID: 92864480}
+  rightTopHeading: {fileID: 1271715906}
   BrazilPercent: {fileID: 15939712}
   IndiaPercent: {fileID: 1631607782}
   TunisiaPercent: {fileID: 1794905645}
@@ -13316,9 +13317,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Packages Arrived
-
-'
+  m_text: Packages Received
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

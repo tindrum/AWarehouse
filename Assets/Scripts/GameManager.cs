@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public TMP_Text headline;
     [SerializeField] public TMP_Text firedReason;
     [SerializeField] public TMP_Text boxCountDisplay;
+    [SerializeField] public TMP_Text rightTopHeading;
     [SerializeField] public TMP_Text BrazilPercent;
     [SerializeField] public TMP_Text IndiaPercent;
     [SerializeField] public TMP_Text TunisiaPercent;
@@ -261,6 +262,7 @@ public class GameManager : MonoBehaviour
 
         float AverageSuccessRate = 100.0f;
         boxCountDisplay.text = boxesCreated.ToString();
+        rightTopHeading.text = "Packages Received";
 
         if (TunisiaIntended > 0) {
              TunisiaSuccessRate = ((float)TunisiaDelivered / (float)TunisiaIntended) * 100.0f;
@@ -309,13 +311,18 @@ public class GameManager : MonoBehaviour
         //Debug.Log(IndiaSuccessRate.ToString());
         //Debug.Log("****************************");
 
-        //String.Format("{0,12:C2}   {0,12:E3}   {0,12:F4}   {0,12:N3}  {1,12:P2}\n",
-        //                  Convert.ToDouble(value), Convert.ToDouble(value) / 100);
-        firedReason.text = "Boxes Shipped out: " + shippedPercent.ToString() + "%";
-        BrazilPercent.text = BrazilSuccessRate.ToString() + "%";
-        IndiaPercent.text = IndiaSuccessRate.ToString() + "%";
-        TunisiaPercent.text = TunisiaSuccessRate.ToString() + "%";
-        UkrainePercent.text = UkraineSuccessRate.ToString() + "%";
+        // int is the way to get fewer digits
+        int bsr = (int)BrazilSuccessRate;
+        int isr = (int)IndiaSuccessRate;
+        int tsr = (int)TunisiaSuccessRate;
+        int usr = (int)UkraineSuccessRate;
+        int sp = (int)shippedPercent;
+
+        firedReason.text = "Boxes Shipped out: " + sp.ToString() + "%";
+        BrazilPercent.text = bsr.ToString() + "%";
+        IndiaPercent.text = isr.ToString() + "%";
+        TunisiaPercent.text = tsr.ToString() + "%";
+        UkrainePercent.text = usr.ToString() + "%";
         RejectedAccuracy.text = rejectedTotal.ToString();
 
         data1.text = BrazilDelivered.ToString();
@@ -327,7 +334,10 @@ public class GameManager : MonoBehaviour
     public void LevelUp()
     {
         // remap for player's AverageSuccessRate
-        float speedUp = math.remap(100.0f, 60.0f,speedIncreaseMultiplier, 0.6f, shippedPercent);
+        float speedUp = math.remap(100.0f, 60.0f,speedIncreaseMultiplier, 0.85f, shippedPercent);
+        // display new box rate
+        boxCountDisplay.text = m_arrivalDock.timerSeconds.ToString();
+        rightTopHeading.text = "Box Speed";
         // call increaseArrivalSpeed on ArrivalDock
         m_arrivalDock.increaseArrivalSpeed(speedUp);
     }
@@ -335,7 +345,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         // stop delivering boxes
-        m_arrivalDock.increaseArrivalSpeed(100.0f);
+        m_arrivalDock.increaseArrivalSpeed(100000.0f);
         gameOver = true;
         StartCoroutine(myWaitCoroutine());
     }
