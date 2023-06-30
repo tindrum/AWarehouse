@@ -25,7 +25,7 @@ public class BinManager : MonoBehaviour
     public float shippingTimeOut = 3.0f; // how long to wait for a box before turning off shipping
     private float shippingDelay; // how long has it been since a box was shipped in this shipping cycle
     private float accumulatedTime;
-    private List<GameObject> inBin; // List of items touching the bottom of the bin
+    [SerializeField] private List<GameObject> inBin; // List of items touching the bottom of the bin
 
     // External scripts to UnityEvent listen
     [SerializeField] private GameManager m_gameManager;
@@ -108,6 +108,7 @@ public class BinManager : MonoBehaviour
         else
         {
             oneBox = inBin[0];
+            inBin.RemoveAt(0);
             UpdateStats(oneBox);
             DeleteBox(oneBox);
             return true;
@@ -132,14 +133,21 @@ public class BinManager : MonoBehaviour
     }
 
 
-    private void OnColisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("BinManager OnCollisionEnter");
         if (!inBin.Contains(collision.gameObject))
         {
             // not already touching the bin
             if (collision.gameObject.CompareTag("Boxes"))
             {
                 inBin.Add(collision.gameObject);
+                Debug.Log("inBin element count");
+                Debug.Log(inBin.Count);
+            }
+            else
+            {
+                Debug.Log("No Boxes tag, no object add");
             }
         }
 

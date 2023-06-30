@@ -134,6 +134,7 @@ public class GameManager : MonoBehaviour
         }
         if (boxesCreated % shipThreshodEventCount == 0)
         {
+            Debug.Log("m_ShipBoxes.Invoke()");
             m_ShipBoxes.Invoke();
         }
 
