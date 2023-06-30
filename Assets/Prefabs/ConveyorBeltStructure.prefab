@@ -1199,10 +1199,10 @@ MonoBehaviour:
   onBelt: []
   boxCountText: {fileID: 3062015236795552436}
   testBeeper: {fileID: 0}
-  soundAdded: {fileID: 8300000, guid: 8d5c617c0a845eb4bb8df15a075d3830, type: 3}
-  soundRemoved: {fileID: 8300000, guid: 68fb34f6c9389d740b46682fa15cbff6, type: 3}
-  hasCoMsoundAdded: {fileID: 8300000, guid: aeebf9f35b9b66a45945c9300732d5d6, type: 3}
-  hasCoMsoundRemoved: {fileID: 8300000, guid: 58dfbf8a948f1ed458c73ba5a27941a7, type: 3}
+  soundAdded: {fileID: 8300000, guid: 7f831ea821cb25b41bd3edddb0c40200, type: 3}
+  soundRemoved: {fileID: 8300000, guid: ab5cce577d8e4464697a79b520734ebf, type: 3}
+  hasCoMsoundAdded: {fileID: 8300000, guid: 7f831ea821cb25b41bd3edddb0c40200, type: 3}
+  hasCoMsoundRemoved: {fileID: 8300000, guid: ab5cce577d8e4464697a79b520734ebf, type: 3}
   directionVector1: 0
   directionVector2: 0
   materialAnimationSpeed: 0.1

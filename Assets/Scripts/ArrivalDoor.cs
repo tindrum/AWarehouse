@@ -72,7 +72,7 @@ public class ArrivalDoor : MonoBehaviour
     {
         if (arrivalDockExists)
         {
-            connectedArrivalDock.pushPackageOut();
+            connectedArrivalDock.m_pushPackageOut.Invoke();
             //Debug.Log("#### calling ArrivalDock.pushPackageOut()");
         }
         else

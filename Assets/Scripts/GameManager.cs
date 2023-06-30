@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
 
     // Game Global Variables
     public int boxesCreated;
+    public int boxesShipped;
+    public float shippedPercent;
     public int boxThresholdEventCount; // how many boxes created causes a score update event
     public int shipThreshodEventCount; // how many boxes created causes a shipping event
     public int levelUpThreshold; // increase speed of box arrival when multiple of this many created
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
     
     private float previousRoundSuccessRate; // save how many were delivered last round
     public int minimumRoundCount;
+    public float minimumPercentageShippedAllowed; // lose game if shipping percent drops below this
     private int roundCount = 0;
 
     private float AverageSuccessRate;
@@ -111,6 +114,7 @@ public class GameManager : MonoBehaviour
         }
         //boxesCreated = 0;
         previousRoundSuccessRate = 100.0f;
+        shippedPercent = 100.0f;
     }
 
     protected void OnEnable()
@@ -174,6 +178,7 @@ public class GameManager : MonoBehaviour
 
     public void ShippingEvent(string destination, string intendedCountry)
     {
+        boxesShipped++;
         //Debug.Log("=========================================");
         //Debug.Log("Shipping Event is subscribed to a few bins");
         //Debug.Log("     and has been called.");
@@ -199,6 +204,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Shouldn't get here");
                 break;
         }
+
         switch (destination)
         {
             case "Tunisia":
@@ -247,6 +253,7 @@ public class GameManager : MonoBehaviour
     public void UpdateScores()
     {
         roundCount += 1; // don't let the game end on the first UpdateScores() call
+        shippedPercent = ( (float)boxesShipped / (float)boxesCreated) * 100.0f;
         float TunisiaSuccessRate = 0.0f;
         float BrazilSuccessRate = 0.0f;
         float IndiaSuccessRate = 0.0f;
@@ -269,7 +276,7 @@ public class GameManager : MonoBehaviour
         }
 
         AverageSuccessRate = (TunisiaSuccessRate + BrazilSuccessRate + IndiaSuccessRate + UkraineSuccessRate) / 4.0f;
-        if (AverageSuccessRate < 60.0f && roundCount > minimumRoundCount)
+        if (shippedPercent < minimumPercentageShippedAllowed && roundCount > minimumRoundCount)
         {
             headline.text = "We're letting you go.";
             firedReason.text = "You work too slowly, and not very accurately.";
@@ -304,6 +311,7 @@ public class GameManager : MonoBehaviour
 
         //String.Format("{0,12:C2}   {0,12:E3}   {0,12:F4}   {0,12:N3}  {1,12:P2}\n",
         //                  Convert.ToDouble(value), Convert.ToDouble(value) / 100);
+        firedReason.text = "Boxes Shipped out: " + shippedPercent.ToString() + "%";
         BrazilPercent.text = BrazilSuccessRate.ToString() + "%";
         IndiaPercent.text = IndiaSuccessRate.ToString() + "%";
         TunisiaPercent.text = TunisiaSuccessRate.ToString() + "%";
@@ -319,7 +327,7 @@ public class GameManager : MonoBehaviour
     public void LevelUp()
     {
         // remap for player's AverageSuccessRate
-        float speedUp = math.remap(100.0f, 0.0f, 0.7f, speedIncreaseMultiplier, AverageSuccessRate);
+        float speedUp = math.remap(100.0f, 60.0f,speedIncreaseMultiplier, 0.6f, shippedPercent);
         // call increaseArrivalSpeed on ArrivalDock
         m_arrivalDock.increaseArrivalSpeed(speedUp);
     }
