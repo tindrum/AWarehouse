@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
+using UnityEngine.Events;
 using UnityEngine;
 
 public class ArrivalDock : MonoBehaviour
 {
-    public float exitTimeVariance;
+    public float speedIncreaseMultiplier; // make slightly less than 1.0f
     public float timerSeconds;
     private float accumulatedTime;
     public GameObject arrivalSpot;
@@ -13,6 +14,13 @@ public class ArrivalDock : MonoBehaviour
     public GameObject defaultBoxType;
     public bool randomRotation;
     //private Timer timer;
+
+    // Create a Unity Event 
+    public UnityEvent m_pushPackageOut = new UnityEvent();
+
+    // Am I assigning the method on the left to the UnityEvent variable on the right?
+    // public UnityEvent m_pushPackageOut => pushPackageOut;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,16 +31,10 @@ public class ArrivalDock : MonoBehaviour
 
         }
 
-      //  Debug.Log("******** Arrival Dock instantiated");
-     //   Debug.Log(arrivalSpot.name);
-//
-      //  Debug.Log("       * creating empty list of package prefab types");
-        // packagePrefabList = new List<GameObject>();
 
         if (defaultBoxType != null)
         {
             addPackagePrefab(defaultBoxType);
-          //  Debug.Log("       * adding prefab to arrivalDock list");
         }
 
         // Set up a system timer event system
@@ -41,6 +43,7 @@ public class ArrivalDock : MonoBehaviour
         //timer.Start();
         // timer.Elapsed += timedPackagePush;
         accumulatedTime = 0.0f;
+        m_pushPackageOut.AddListener(pushPackageOut);
      }
 
     // Update is called once per frame
@@ -58,7 +61,7 @@ public class ArrivalDock : MonoBehaviour
             {
                 arrivalSpot.transform.rotation = Random.rotation;
             }
-            pushPackageOut();
+            m_pushPackageOut.Invoke();
             accumulatedTime -= timerSeconds;
             //Debug.Log("$$$$: " + accumulatedTime);
 
@@ -75,7 +78,7 @@ public class ArrivalDock : MonoBehaviour
     public void timedPackagePush(object sender, ElapsedEventArgs e)
     {
         Debug.Log("timer firing timedPackagePush");
-        pushPackageOut();
+        m_pushPackageOut.Invoke();
     }
 
     public void addPackagePrefab(GameObject boxType)
@@ -84,8 +87,6 @@ public class ArrivalDock : MonoBehaviour
         Debug.Log("before Arrival Dock package list items: " + packagePrefabList.Count);
         packagePrefabList.Add(boxType);
         Debug.Log("after Arrival Dock package list items: " + packagePrefabList.Count);
-
-
     }
 
     public void removeAllPackagePrefabs()
@@ -96,22 +97,20 @@ public class ArrivalDock : MonoBehaviour
 
     public void pushPackageOut()
     {
-       // Debug.Log("********  ArrivalDock.pushPackageOut() ");
-       // Debug.Log("       *  ArrivalDock.pushPackageOut() called");
-
         // trigger the generation of one package
         if (packagePrefabList != null && packagePrefabList.Count > 0)
         {
-            // Debug.Log("       * Instantiate a package from packagePrefabList");
             int itemIndex = Random.Range(0, packagePrefabList.Count);
             GameObject boxPrefab = packagePrefabList[itemIndex];
-            GameObject box = Instantiate(boxPrefab, arrivalSpot.transform.position, Quaternion.identity);
-
             // Would like boxes not to come out in a uniform rotation, but need to not change their "internal" north, 
             // just their facing in the world.
-            // box.transform.rotation = Random.rotation;
+            GameObject box = Instantiate(boxPrefab, arrivalSpot.transform.position, Quaternion.identity);
         }
+    }
 
+    public void increaseArrivalSpeed()
+    {
+        timerSeconds *= speedIncreaseMultiplier;
     }
 
 }
