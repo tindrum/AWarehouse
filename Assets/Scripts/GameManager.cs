@@ -40,6 +40,9 @@ public class GameManager : MonoBehaviour
     public int shipThreshodEventCount; // how many boxes created causes a shipping event
     public int levelUpThreshold; // increase speed of box arrival when multiple of this many created
     public float speedIncreaseMultiplier; // make slightly less than 1.0f
+    
+    private float previousRoundSuccessRate; // save how many were delivered last round
+
     private float AverageSuccessRate;
     [SerializeField] private GameObject lightGameObject;
     private bool gameOver;
@@ -102,6 +105,7 @@ public class GameManager : MonoBehaviour
 //            Debug.Log("ship theshold count has default value");
         }
         //boxesCreated = 0;
+        previousRoundSuccessRate = 100.0f;
     }
 
     protected void OnEnable()
@@ -223,6 +227,7 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     // You burnt up a good kid's present
+                    EndGame();
                     switch (intendedCountry)
                     {
                         case "Tunisia":
@@ -273,8 +278,13 @@ public class GameManager : MonoBehaviour
         }
 
         AverageSuccessRate = (TunisiaSuccessRate + BrazilSuccessRate + IndiaSuccessRate + UkraineSuccessRate) / 4.0f;
+        if (AverageSuccessRate < 60.0f)
+        {
+            EndGame();
+        }
 
         int rejectedTotal = TunisiaPirates + UkrainePirates + IndiaPirates + BrazilPirates;
+
         //Debug.Log("****************************");
         //Debug.Log("Ukraine Delivered");
         //Debug.Log(UkraineDelivered.ToString());
