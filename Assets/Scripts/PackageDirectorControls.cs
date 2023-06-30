@@ -73,7 +73,7 @@ namespace UnityEngine.XR.Content.Interaction
             // m_EmergencyStopButton.onRelease.AddListener();
             m_StartButton.onPress.AddListener(MachineStart);
             m_SpeedDial.onValueChange.AddListener(SetMachineSpeed);
-            Debug.Log("PackageDirectorControls connected");
+            //Debug.Log("PackageDirectorControls connected");
 
         }
 

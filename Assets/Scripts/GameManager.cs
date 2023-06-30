@@ -59,9 +59,16 @@ public class GameManager : MonoBehaviour
     // [SerializeField] public GameObject ScoreBoard;
     // public Canvas statsDisplay;
     [SerializeField] public TMP_Text boxCountDisplay;
-    [SerializeField] public TMP_Text deletedBoxesDisplay;
-    [SerializeField] public TMP_Text otherDisplay;
-    [SerializeField] public TMP_Text moreDisplay;
+    [SerializeField] public TMP_Text BrazilPercent;
+    [SerializeField] public TMP_Text IndiaPercent;
+    [SerializeField] public TMP_Text TunisiaPercent;
+    [SerializeField] public TMP_Text UkrainePercent;
+    [SerializeField] public TMP_Text RejectedAccuracy;
+
+    [SerializeField] public TMP_Text data1;
+    [SerializeField] public TMP_Text data2;
+    [SerializeField] public TMP_Text data3;
+    [SerializeField] public TMP_Text data4;
 
 
     // Start is called before the first frame update
@@ -130,7 +137,7 @@ public class GameManager : MonoBehaviour
         if (boxesCreated % boxThresholdEventCount == 0)
         {
             // ArrivalDockGameObject.increaseArrivalSpeed();
-            DisplayBoxesArrived();
+            UpdateScores();
         }
         if (boxesCreated % shipThreshodEventCount == 0)
         {
@@ -142,7 +149,10 @@ public class GameManager : MonoBehaviour
 
     public void ShippingEvent(string destination, string intendedCountry)
     {
+        Debug.Log("=========================================");
         Debug.Log("Shipping Event is subscribed to a few bins");
+        Debug.Log("     and has been called.");
+        Debug.Log("==========================================");
         switch (destination)
         {
             case "Tunisia":
@@ -223,8 +233,65 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void DisplayBoxesArrived()
+    public void UpdateScores()
     {
+        float TunisiaSuccessRate = 0.0f;
+        float BrazilSuccessRate = 0.0f;
+        float IndiaSuccessRate = 0.0f;
+        float UkraineSuccessRate = 0.0f;
         boxCountDisplay.text = boxesCreated.ToString();
+
+        if (TunisiaIntended > 0) {
+             TunisiaSuccessRate = (float)TunisiaDelivered / (float)TunisiaIntended;
+        } 
+        if (BrazilIntended > 0) {
+            BrazilSuccessRate = (float)BrazilDelivered / (float)BrazilIntended;
+        }
+        if (IndiaIntended > 0) {
+            IndiaSuccessRate = (float)IndiaDelivered / (float)IndiaIntended;
+        }
+        if (UkraineIntended > 0) {
+            UkraineSuccessRate = ((float)UkraineDelivered / (float)UkraineIntended) * 100.0f;
+        }
+
+        int rejectedTotal = TunisiaPirates + UkrainePirates + IndiaPirates + BrazilPirates;
+        Debug.Log("****************************");
+        Debug.Log("Ukraine Delivered");
+        Debug.Log(UkraineDelivered.ToString());
+        Debug.Log(IndiaDelivered.ToString());
+        Debug.Log(BrazilDelivered.ToString());
+        Debug.Log(PirateDelivered.ToString());
+        Debug.Log("Ukraine Intended ******");
+        Debug.Log(UkraineIntended.ToString());
+        Debug.Log(TunisiaIntended.ToString());
+        Debug.Log(IndiaIntended.ToString());
+        Debug.Log(BrazilIntended.ToString());
+        Debug.Log("Ukraine Pirates**********");
+        Debug.Log(UkrainePirates.ToString());
+        Debug.Log(TunisiaPirates.ToString());
+        Debug.Log(IndiaPirates.ToString());
+        Debug.Log(BrazilPirates.ToString());
+        Debug.Log("Ukraine Success Rate*************");
+        Debug.Log(UkraineSuccessRate.ToString());
+        Debug.Log(TunisiaSuccessRate.ToString());
+        Debug.Log(BrazilSuccessRate.ToString());
+        Debug.Log(IndiaSuccessRate.ToString());
+        Debug.Log("****************************");
+
+        //String.Format("{0,12:C2}   {0,12:E3}   {0,12:F4}   {0,12:N3}  {1,12:P2}\n",
+        //                  Convert.ToDouble(value), Convert.ToDouble(value) / 100);
+        BrazilPercent.text = BrazilSuccessRate.ToString();
+        IndiaPercent.text = IndiaSuccessRate.ToString();
+        TunisiaPercent.text = TunisiaSuccessRate.ToString();
+        UkrainePercent.text = UkraineSuccessRate.ToString();
+        RejectedAccuracy.text = rejectedTotal.ToString();
+
+        data1.text = BrazilDelivered.ToString();
+        data2.text = IndiaDelivered.ToString();
+        data3.text = TunisiaDelivered.ToString();
+        data4.text = UkraineDelivered.ToString();
+
+
+
     }
 }

@@ -32,7 +32,7 @@ public class BinManager : MonoBehaviour
     // private BoxShippingEvent shipEvent;
 
     // UnityEvents
-    public BoxShippingEvent m_shipEvent = new BoxShippingEvent();
+    public BoxShippingEvent m_shipEvent; // = new BoxShippingEvent();
  
     // Start is called before the first frame update
     void Start()
@@ -91,7 +91,7 @@ public class BinManager : MonoBehaviour
 
     void ShipBoxesAway()
     {
-        Debug.Log("***************** Shipping Boxes *******************");
+        // Debug.Log("*********** BinManager.ShipBoxesAway() *************");
         accumulatedTime = 0.0f;
         shippingNow = true; // Update() will do its stuff
 
@@ -117,10 +117,12 @@ public class BinManager : MonoBehaviour
 
     void UpdateStats(GameObject boxShipping)
     {
-        string sampleAddress = "Blush";
-        string sampleDestination = "Bashful";
+        //string sampleAddress = "Blush";
+        //string sampleDestination = "Bashful";
         string country = boxShipping.GetComponent<ThisIsComment>().Country;
         // get the country data
+        //Debug.Log("***************** Invoke *******************");
+        //Debug.Log("Calling Invoke() on BinManager.m_shipEvent from BinManager.UpdateStats()");
         m_shipEvent.Invoke(Destination, country);
         // 
 
@@ -135,14 +137,14 @@ public class BinManager : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("BinManager OnCollisionEnter");
+        //Debug.Log("BinManager OnCollisionEnter");
         if (!inBin.Contains(collision.gameObject))
         {
             // not already touching the bin
             if (collision.gameObject.CompareTag("Boxes"))
             {
                 inBin.Add(collision.gameObject);
-                Debug.Log("inBin element count");
+                //Debug.Log("inBin element count");
                 Debug.Log(inBin.Count);
             }
             else
