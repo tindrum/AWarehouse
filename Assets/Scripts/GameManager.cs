@@ -18,12 +18,18 @@ public class GameManager : MonoBehaviour
     // My scripts to listen to
     [SerializeField] private GameObject ArrivalDockGameObject;
     [SerializeField] private ArrivalDock m_arrivalDock;
- 
+    // And Objects to listen to
+    [SerializeField] private GameObject PirateBin;
 
+    // My Events
+    // Create a Unity Event 
+    public UnityEvent m_ShipBoxes = new UnityEvent();
+    public UnityEvent m_GameOver = new UnityEvent();
 
     // Game Global Variables
     public int boxesCreated;
-    int boxThresholdEventCount; // how many boxes created causes a cleanup/shipping event
+    public int boxThresholdEventCount; // how many boxes created causes a score update event
+    public int shipThreshodEventCount; // how many boxes created causes a shipping event
 
     // Display to Player stuff
     // [SerializeField] public GameObject ScoreBoard;
@@ -45,8 +51,17 @@ public class GameManager : MonoBehaviour
         }
 
         // initialize globals
-        boxThresholdEventCount = 20;
-        boxesCreated = 0;
+        if (boxThresholdEventCount == 0)
+        {
+            boxThresholdEventCount = 20;
+            Debug.Log("box theshold count has default value");
+        }
+        if (shipThreshodEventCount == 0)
+        {
+            shipThreshodEventCount = 100;
+            Debug.Log("ship theshold count has default value");
+        }
+        //boxesCreated = 0;
     }
 
     protected void OnEnable()
@@ -86,6 +101,11 @@ public class GameManager : MonoBehaviour
             // ArrivalDockGameObject.increaseArrivalSpeed();
             DisplayBoxesArrived();
         }
+        if (boxesCreated % shipThreshodEventCount == 0)
+        {
+            m_ShipBoxes.Invoke();
+        }
+
     }
 
     public void DisplayBoxesArrived()
