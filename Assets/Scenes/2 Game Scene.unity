@@ -4657,7 +4657,7 @@ MonoBehaviour:
   boxThresholdEventCount: 5
   shipThreshodEventCount: 10
   levelUpThreshold: 21
-  speedIncreaseMultiplier: 0.98
+  speedIncreaseMultiplier: 0.94
   minimumRoundCount: 17
   minimumPercentageShippedAllowed: 70
   lightGameObject: {fileID: 410087039}

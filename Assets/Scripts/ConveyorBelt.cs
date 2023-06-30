@@ -60,7 +60,7 @@ public class ConveyorBelt : MonoBehaviour
             // and therefore didn't add other types of objects to the conveyor.
             if (testBeeper != null)
             {
-                testBeeper.GetComponent<AudioSource>().PlayOneShot(hasCoMsoundAdded, 0.3f);
+                testBeeper.GetComponent<AudioSource>().PlayOneShot(hasCoMsoundAdded, 0.2f);
             }
             // collision.gameObject.GetComponent<BoxCenterOfMass>().LowerCenterOfMass();
         }
@@ -73,7 +73,7 @@ public class ConveyorBelt : MonoBehaviour
         {
             if (testBeeper != null)
             {
-                testBeeper.GetComponent<AudioSource>().PlayOneShot(soundAdded, 0.3f);
+                testBeeper.GetComponent<AudioSource>().PlayOneShot(soundAdded, 0.2f);
             }
 
             onBelt.Add(collision.gameObject);
@@ -92,14 +92,14 @@ public class ConveyorBelt : MonoBehaviour
         {
             if (testBeeper != null)
             {
-                testBeeper.GetComponent<AudioSource>().PlayOneShot(hasCoMsoundRemoved, 0.4f);
+                testBeeper.GetComponent<AudioSource>().PlayOneShot(hasCoMsoundRemoved, 0.2f);
             }
 
             // collision.gameObject.GetComponent<BoxCenterOfMass>().ResetCenterOfMass();
         }
         if (testBeeper != null)
         {
-            testBeeper.GetComponent<AudioSource>().PlayOneShot(soundRemoved, 0.3f);
+            testBeeper.GetComponent<AudioSource>().PlayOneShot(soundRemoved, 0.2f);
         }
 
         onBelt.Remove(collision.gameObject);
