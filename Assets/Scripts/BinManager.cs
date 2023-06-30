@@ -19,7 +19,7 @@ public class BinManager : MonoBehaviour
     private Sprite CountryFlagSprite; // Code image to place in UI.Image
 
     // Ship Boxes
-    private string Destination; // set this to a country or Pirate
+    [SerializeField] private string Destination; // set this to a country or Pirate
     [SerializeField] private GameObject shippingPlate; // boxes touching this will be shipped
     private bool shippingNow = false;
     public float shippingTimeOut = 3.0f; // how long to wait for a box before turning off shipping
@@ -32,7 +32,7 @@ public class BinManager : MonoBehaviour
     // private BoxShippingEvent shipEvent;
 
     // UnityEvents
-    public BoxShippingEvent shipEvent = new BoxShippingEvent();
+    public BoxShippingEvent m_shipEvent = new BoxShippingEvent();
  
     // Start is called before the first frame update
     void Start()
@@ -57,7 +57,7 @@ public class BinManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (shippingNow)
+        if (shippingNow) 
         {
             accumulatedTime += Time.deltaTime;
             if (OneBoxShipping())
@@ -73,6 +73,7 @@ public class BinManager : MonoBehaviour
 
     void ConnectListenerEvents()
     {
+        // Game Manager will trigger this event when 100 boxes
         m_gameManager.m_ShipBoxes.AddListener(ShipBoxesAway);
     }
 
@@ -82,17 +83,17 @@ public class BinManager : MonoBehaviour
 
     }
 
-    void ShippingEvent(string destination, string country)
-    {
+    //void ShippingEvent(string destination, string country)
+    //{
 
-    }
+    //}
 
 
     void ShipBoxesAway()
     {
         Debug.Log("***************** Shipping Boxes *******************");
         accumulatedTime = 0.0f;
-        shippingNow = true; // OnUpdate will do its stuff
+        shippingNow = true; // Update() will do its stuff
 
     }
 
@@ -115,9 +116,11 @@ public class BinManager : MonoBehaviour
 
     void UpdateStats(GameObject boxShipping)
     {
-        string sampleData = "India";
+        string sampleAddress = "Blush";
+        string sampleDestination = "Bashful";
+        string country = boxShipping.GetComponent<ThisIsComment>().Country;
         // get the country data
-
+        m_shipEvent.Invoke(Destination, country);
         // 
 
     }
@@ -131,37 +134,22 @@ public class BinManager : MonoBehaviour
 
     private void OnColisionEnter(Collision collision)
     {
+        if (!inBin.Contains(collision.gameObject))
+        {
+            // not already touching the bin
+            if (collision.gameObject.CompareTag("Boxes"))
+            {
+                inBin.Add(collision.gameObject);
+            }
+        }
 
     }
 
     private void OnCollisionExit(Collision collision)
     {
-
-    }
-
-    public void CorrectToIndia()
-    {
-
-    }
-
-    public void CorrectToUkraine()
-    {
-
-    }
-
-    public void CorrectToTunisia()
-    {
-
-    }
-
-    public void CorrectToBrazil()
-    {
-
-    }
-
-    public void CorrectToPirate()
-    {
-
+        // returns false if object isn't in list,
+        // so I guess it's safe
+        inBin.Remove(collision.gameObject);
     }
 
 

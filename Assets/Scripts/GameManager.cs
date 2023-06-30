@@ -18,23 +18,50 @@ public class GameManager : MonoBehaviour
     // My scripts to listen to
     [SerializeField] private GameObject ArrivalDockGameObject;
     [SerializeField] private ArrivalDock m_arrivalDock;
+
     // And Objects to listen to
-    [SerializeField] private GameObject PirateBin;
+    [SerializeField] private BinManager m_PirateBin;
+    [SerializeField] private BinManager m_UkraineBin;
+    [SerializeField] private BinManager m_TunisiaBin;
+    [SerializeField] private GameObject m_IndiaBin;
+    [SerializeField] private GameObject m_BrazilBin;
+
 
     // My Events
     // Create a Unity Event 
     public UnityEvent m_ShipBoxes = new UnityEvent();
     public UnityEvent m_GameOver = new UnityEvent();
+    public BoxShippingEvent m_shipEvent = new BoxShippingEvent();
 
     // Game Global Variables
     public int boxesCreated;
     public int boxThresholdEventCount; // how many boxes created causes a score update event
     public int shipThreshodEventCount; // how many boxes created causes a shipping event
 
+    // Game Counters
+    private int TunisiaDelivered;
+    private int UkraineDelivered;
+    private int IndiaDelivered;
+    private int BrazilDelivered;
+    private int PirateDelivered;
+
+    private int TunisiaIntended;
+    private int UkraineIntended;
+    private int IndiaIntended;
+    private int BrazilIntended;
+
+    private int TunisiaPirates;
+    private int UkrainePirates;
+    private int IndiaPirates;
+    private int BrazilPirates;
+
     // Display to Player stuff
     // [SerializeField] public GameObject ScoreBoard;
     // public Canvas statsDisplay;
     [SerializeField] public TMP_Text boxCountDisplay;
+    [SerializeField] public TMP_Text deletedBoxesDisplay;
+    [SerializeField] public TMP_Text otherDisplay;
+    [SerializeField] public TMP_Text moreDisplay;
 
 
     // Start is called before the first frame update
@@ -84,11 +111,15 @@ public class GameManager : MonoBehaviour
     {
         // ArrivalDockGameObject.m_pushPackageOut.AddListener(IncrementGlobalBoxCount);
         m_arrivalDock.m_pushPackageOut.AddListener(IncrementGlobalBoxCount);
+        m_PirateBin.m_shipEvent.AddListener(ShippingEvent);
+        m_UkraineBin.m_shipEvent.AddListener(ShippingEvent);
     }
 
     void DisconnectListenerEvents()
     {
         m_arrivalDock.m_pushPackageOut.RemoveListener(IncrementGlobalBoxCount);
+        m_PirateBin.m_shipEvent.RemoveListener(ShippingEvent);
+        m_UkraineBin.m_shipEvent.RemoveListener(ShippingEvent);
 
     }
 
@@ -104,6 +135,89 @@ public class GameManager : MonoBehaviour
         if (boxesCreated % shipThreshodEventCount == 0)
         {
             m_ShipBoxes.Invoke();
+        }
+
+    }
+
+    public void ShippingEvent(string destination, string intendedCountry)
+    {
+        Debug.Log("Shipping Event is subscribed to a few bins");
+        switch (destination)
+        {
+            case "Tunisia":
+                if (intendedCountry == "Tunisia")
+                {
+                    TunisiaDelivered++;
+                    TunisiaIntended++;
+                }
+                else
+                {
+                    TunisiaIntended++;
+                }
+                break;
+            case "Ukraine":
+                if (intendedCountry == "Ukraine")
+                {
+                    UkraineDelivered++;
+                    UkraineIntended++;
+                }
+                else
+                {
+                    UkraineIntended++;
+                }
+                break;
+            case "India":
+                if (intendedCountry == "India")
+                {
+                    IndiaDelivered++;
+                    IndiaIntended++;
+                }
+                else
+                {
+                    IndiaIntended++;
+                }
+                break;
+            case "Brazil":
+                if (intendedCountry == "Brazil")
+                {
+                    BrazilDelivered++;
+                    BrazilIntended++;
+                }
+                else
+                {
+                    BrazilIntended++;
+                }
+                break;
+            case "Pirate":
+                if (intendedCountry == "Pirate")
+                {
+                    PirateDelivered++;
+                }
+                else
+                {
+                    // You burnt up a good kid's present
+                    switch (intendedCountry)
+                    {
+                        case "Tunisia":
+                            TunisiaPirates++;
+                            break;
+                        case "Ukraine":
+                            UkrainePirates++;
+                            break;
+                        case "India":
+                            IndiaPirates++;
+                            break;
+                        case "Brazil":
+                            BrazilPirates++;
+                            break;
+                        default:
+                            Debug.Log("Shouldn't get here");
+                            break;
+                    }
+                }
+                break;
+            default:
+                break;
         }
 
     }
