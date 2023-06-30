@@ -1,4 +1,4 @@
-# AWarehouse
+# A Warehouse Job
 ## based on
 ## VR-Game-Jam-Template
 ### Starter Project using Unity XR Toolkit created for VR Jam 2023
@@ -6,11 +6,20 @@
 Team Magenta Backpack, also known as Deep Bondi, makes this humble VR game for you to enjoy.
 The team members are
 - Daniel Henderson
-- Vikram Savani (Gittest?!?!?!?!
-- Mark Schultz
-- other brothers Henderson
-- other people?
+- Deb Henderson
+- Vikram Savani
 
+## Instructions
+Grab the barcode scanner. Boxes will come down the conveyor.
+Grab a box, scan it, and put it on the conveyor to its intended destination.
+The levers move the paddle arms to help guide boxes into the correct bin.
+
+Some kids have been naughty, and don't deserve a present. 
+Deliver their presents to the round file behind you.
+
+Accuracy counts, and the boxes will come faster and faster.
+And sending the gift for a nice kid down the recycle shoot
+will get you fired.
 
 # Asset Sources
 ## Models and images
