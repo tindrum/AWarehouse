@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     //public UnityEvent m_displayB1 = new UnityEvent();
     //public UnityEvent m_displayB2 = new UnityEvent();
     // more display boxes if needed
+    public static Personifier Instance;
 
 
     // My scripts to listen to
@@ -177,82 +178,64 @@ public class GameManager : MonoBehaviour
         //Debug.Log("Shipping Event is subscribed to a few bins");
         //Debug.Log("     and has been called.");
         //Debug.Log("==========================================");
+        switch (intendedCountry)
+        {
+            case "Tunisia":
+                TunisiaIntended++;
+                break;
+            case "Ukraine":
+                UkraineIntended++;
+                break;
+            case "India":
+                IndiaIntended++;
+                break;
+            case "Brazil":
+                BrazilIntended++;
+                break;
+            case "Pirate":
+                
+                break;
+            default:
+                Debug.Log("Shouldn't get here");
+                break;
+        }
         switch (destination)
         {
             case "Tunisia":
                 if (intendedCountry == "Tunisia")
                 {
                     TunisiaDelivered++;
-                    TunisiaIntended++;
-                }
-                else
-                {
-                    TunisiaIntended++;
                 }
                 break;
             case "Ukraine":
                 if (intendedCountry == "Ukraine")
                 {
                     UkraineDelivered++;
-                    UkraineIntended++;
-                }
-                else
-                {
-                    UkraineIntended++;
                 }
                 break;
             case "India":
                 if (intendedCountry == "India")
                 {
                     IndiaDelivered++;
-                    IndiaIntended++;
-                }
-                else
-                {
-                    IndiaIntended++;
                 }
                 break;
             case "Brazil":
                 if (intendedCountry == "Brazil")
                 {
                     BrazilDelivered++;
-                    BrazilIntended++;
-                }
-                else
-                {
-                    BrazilIntended++;
                 }
                 break;
             case "Pirate":
                 if (intendedCountry == "Pirate")
                 {
                     PirateDelivered++;
-                }
-                else
+                } else
                 {
                     // You burnt up a good kid's present
                     headline.text = "You're Fired.";
                     firedReason.text = "A nice kid's present went into the naughty bin.";
 
                     EndGame();
-                    switch (intendedCountry)
-                    {
-                        case "Tunisia":
-                            TunisiaPirates++;
-                            break;
-                        case "Ukraine":
-                            UkrainePirates++;
-                            break;
-                        case "India":
-                            IndiaPirates++;
-                            break;
-                        case "Brazil":
-                            BrazilPirates++;
-                            break;
-                        default:
-                            Debug.Log("Shouldn't get here");
-                            break;
-                    }
                 }
                 break;
             default:

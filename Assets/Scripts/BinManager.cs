@@ -10,6 +10,9 @@ using UnityEngine.Events;
 
 public class BinManager : MonoBehaviour
 {
+    public static Personifier Instance;
+
+
     [SerializeField] private TMP_Text countryName;
     [SerializeField] private TMP_Text statusLabel;
     [SerializeField] private TMP_Text statusDisplay;
@@ -120,9 +123,17 @@ public class BinManager : MonoBehaviour
         //string sampleAddress = "Blush";
         //string sampleDestination = "Bashful";
         string country = boxShipping.GetComponent<ThisIsComment>().Country;
+        bool nice = boxShipping.GetComponent<ThisIsComment>().Nice;
         // get the country data
         //Debug.Log("***************** Invoke *******************");
         //Debug.Log("Calling Invoke() on BinManager.m_shipEvent from BinManager.UpdateStats()");
+
+        // personifier
+        if (!nice)
+        {
+            country = "Pirate";
+        }
+
         m_shipEvent.Invoke(Destination, country);
         // 
 
