@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
 
 
     // My scripts to listen to
-    private GameObject ArrivalDockGameObject;
-    private ArrivalDock m_arrivalDock;
+    [SerializeField] private GameObject ArrivalDockGameObject;
+    [SerializeField] private ArrivalDock m_arrivalDock;
  
 
 
@@ -26,23 +26,37 @@ public class GameManager : MonoBehaviour
     int boxThresholdEventCount; // how many boxes created causes a cleanup/shipping event
 
     // Display to Player stuff
-    public GameObject ScoreBoard;
-    public Canvas statsDisplay;
-    public TMP_Text boxCountDisplay;
+    // [SerializeField] public GameObject ScoreBoard;
+    // public Canvas statsDisplay;
+    [SerializeField] public TMP_Text boxCountDisplay;
 
 
     // Start is called before the first frame update
     void Start()
     {
         // get the Arrival Dock object
-        ArrivalDockGameObject = GameObject.Find("ArrivalDock");
-        ScoreBoard = GameObject.Find("MainScreen");
-        statsDisplay = ScoreBoard.GetComponent<Canvas>();
-        // m_arrivalDock = ArrivalDockGameObject.ArrivalDock;
+        // ArrivalDockGameObject = GameObject.Find("ArrivalDock");
+        if (ArrivalDockGameObject == null)
+        {
+            Debug.Log("No arrival dock found");
+        }
+        else { 
+            Debug.Log("Arrival Dock found."); 
+        }
 
         // initialize globals
         boxThresholdEventCount = 20;
         boxesCreated = 0;
+    }
+
+    protected void OnEnable()
+    {
+        ConnectListenerEvents();
+    }
+
+    protected void OnDestroy()
+    {
+        DisconnectListenerEvents();
     }
 
     // Update is called once per frame
@@ -65,12 +79,12 @@ public class GameManager : MonoBehaviour
 
     void IncrementGlobalBoxCount()
     {
+        Debug.Log("IncGlobalBoxCount in GameManager");
         boxesCreated++;
         if (boxesCreated % boxThresholdEventCount == 0)
         {
             // ArrivalDockGameObject.increaseArrivalSpeed();
             DisplayBoxesArrived();
-
         }
     }
 
