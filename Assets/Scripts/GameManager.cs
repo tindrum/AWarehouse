@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
     public float speedIncreaseMultiplier; // make slightly less than 1.0f
     
     private float previousRoundSuccessRate; // save how many were delivered last round
+    public int minimumRoundCount;
+    private int roundCount = 0;
 
     private float AverageSuccessRate;
     [SerializeField] private GameObject lightGameObject;
@@ -67,6 +69,8 @@ public class GameManager : MonoBehaviour
     // Display to Player stuff
     // [SerializeField] public GameObject ScoreBoard;
     // public Canvas statsDisplay;
+    [SerializeField] public TMP_Text headline;
+    [SerializeField] public TMP_Text firedReason;
     [SerializeField] public TMP_Text boxCountDisplay;
     [SerializeField] public TMP_Text BrazilPercent;
     [SerializeField] public TMP_Text IndiaPercent;
@@ -169,10 +173,10 @@ public class GameManager : MonoBehaviour
 
     public void ShippingEvent(string destination, string intendedCountry)
     {
-        Debug.Log("=========================================");
-        Debug.Log("Shipping Event is subscribed to a few bins");
-        Debug.Log("     and has been called.");
-        Debug.Log("==========================================");
+        //Debug.Log("=========================================");
+        //Debug.Log("Shipping Event is subscribed to a few bins");
+        //Debug.Log("     and has been called.");
+        //Debug.Log("==========================================");
         switch (destination)
         {
             case "Tunisia":
@@ -227,6 +231,9 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     // You burnt up a good kid's present
+                    headline.text = "You're Fired.";
+                    firedReason.text = "A nice kid's present went into the naughty bin.";
+
                     EndGame();
                     switch (intendedCountry)
                     {
@@ -256,6 +263,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateScores()
     {
+        roundCount += 1; // don't let the game end on the first UpdateScores() call
         float TunisiaSuccessRate = 0.0f;
         float BrazilSuccessRate = 0.0f;
         float IndiaSuccessRate = 0.0f;
@@ -278,8 +286,11 @@ public class GameManager : MonoBehaviour
         }
 
         AverageSuccessRate = (TunisiaSuccessRate + BrazilSuccessRate + IndiaSuccessRate + UkraineSuccessRate) / 4.0f;
-        if (AverageSuccessRate < 60.0f)
+        if (AverageSuccessRate < 60.0f && roundCount > minimumRoundCount)
         {
+            headline.text = "We're letting you go.";
+            firedReason.text = "You work too slowly, and not very accurately.";
+
             EndGame();
         }
 
@@ -340,13 +351,14 @@ public class GameManager : MonoBehaviour
 
     IEnumerator myWaitCoroutine()
     {
-        yield return new WaitForSeconds(10f);// Wait for one second
+
+        HideAll();
+        yield return new WaitForSeconds(2);// Wait for one second
 
         // All your Post-Delay Logic goes here:
         // Run functions
         // Set your Values
         // Or whatever else
-        HideAll();
         SceneTransitionManager.singleton.GoToSceneAsync(2);
 
     }
