@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ArrivalDock : MonoBehaviour
 {
-    public float speedIncreaseMultiplier; // make slightly less than 1.0f
+    // public float speedIncreaseMultiplier; // make slightly less than 1.0f
     public float timerSeconds;
     private float accumulatedTime;
     public GameObject arrivalSpot;
@@ -77,16 +77,16 @@ public class ArrivalDock : MonoBehaviour
 
     public void timedPackagePush(object sender, ElapsedEventArgs e)
     {
-        Debug.Log("timer firing timedPackagePush");
+//        Debug.Log("timer firing timedPackagePush");
         m_pushPackageOut.Invoke();
     }
 
     public void addPackagePrefab(GameObject boxType)
     {
         // add a prefab to the types of packages this Arrival Dock will push out.
-        Debug.Log("before Arrival Dock package list items: " + packagePrefabList.Count);
+ //       Debug.Log("before Arrival Dock package list items: " + packagePrefabList.Count);
         packagePrefabList.Add(boxType);
-        Debug.Log("after Arrival Dock package list items: " + packagePrefabList.Count);
+ //       Debug.Log("after Arrival Dock package list items: " + packagePrefabList.Count);
     }
 
     public void removeAllPackagePrefabs()
@@ -108,8 +108,9 @@ public class ArrivalDock : MonoBehaviour
         }
     }
 
-    public void increaseArrivalSpeed()
+    public void increaseArrivalSpeed(float speedIncreaseMultiplier)
     {
+        // speedIncreaseMultiplier is on GameManager
         timerSeconds *= speedIncreaseMultiplier;
     }
 

@@ -1203,6 +1203,8 @@ MonoBehaviour:
   soundRemoved: {fileID: 8300000, guid: 68fb34f6c9389d740b46682fa15cbff6, type: 3}
   hasCoMsoundAdded: {fileID: 8300000, guid: aeebf9f35b9b66a45945c9300732d5d6, type: 3}
   hasCoMsoundRemoved: {fileID: 8300000, guid: 58dfbf8a948f1ed458c73ba5a27941a7, type: 3}
+  directionVector1: 0
+  directionVector2: 0
   materialAnimationSpeed: 0.1
 --- !u!1 &8696959251869551317
 GameObject:
@@ -1219,7 +1221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3937257810579461924
 Transform:
   m_ObjectHideFlags: 0

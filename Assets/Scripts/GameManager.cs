@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
+using Unity.Mathematics;
 
 public class GameManager : MonoBehaviour
 {
     // Unity Events
-    public UnityEvent m_displayHeading = new UnityEvent();
-    public UnityEvent m_displayA1 = new UnityEvent();
-    public UnityEvent m_displayA2 = new UnityEvent();
-    public UnityEvent m_displayB1 = new UnityEvent();
-    public UnityEvent m_displayB2 = new UnityEvent();
+    //public UnityEvent m_displayHeading = new UnityEvent();
+    //public UnityEvent m_displayA1 = new UnityEvent();
+    //public UnityEvent m_displayA2 = new UnityEvent();
+    //public UnityEvent m_displayB1 = new UnityEvent();
+    //public UnityEvent m_displayB2 = new UnityEvent();
     // more display boxes if needed
 
 
@@ -37,6 +38,11 @@ public class GameManager : MonoBehaviour
     public int boxesCreated;
     public int boxThresholdEventCount; // how many boxes created causes a score update event
     public int shipThreshodEventCount; // how many boxes created causes a shipping event
+    public int levelUpThreshold; // increase speed of box arrival when multiple of this many created
+    public float speedIncreaseMultiplier; // make slightly less than 1.0f
+    private float AverageSuccessRate;
+    [SerializeField] private GameObject lightGameObject;
+    private bool gameOver;
 
     // Game Counters
     private int TunisiaDelivered;
@@ -78,22 +84,22 @@ public class GameManager : MonoBehaviour
         // ArrivalDockGameObject = GameObject.Find("ArrivalDock");
         if (ArrivalDockGameObject == null)
         {
-            Debug.Log("No arrival dock found");
+//            Debug.Log("No arrival dock found");
         }
         else { 
-            Debug.Log("Arrival Dock found."); 
+ //           Debug.Log("Arrival Dock found."); 
         }
 
         // initialize globals
         if (boxThresholdEventCount == 0)
         {
             boxThresholdEventCount = 20;
-            Debug.Log("box theshold count has default value");
+//            Debug.Log("box theshold count has default value");
         }
         if (shipThreshodEventCount == 0)
         {
             shipThreshodEventCount = 100;
-            Debug.Log("ship theshold count has default value");
+//            Debug.Log("ship theshold count has default value");
         }
         //boxesCreated = 0;
     }
@@ -138,7 +144,7 @@ public class GameManager : MonoBehaviour
 
     void IncrementGlobalBoxCount()
     {
-        Debug.Log("IncGlobalBoxCount in GameManager");
+//        Debug.Log("IncGlobalBoxCount in GameManager");
         boxesCreated++;
         if (boxesCreated % boxThresholdEventCount == 0)
         {
@@ -147,8 +153,12 @@ public class GameManager : MonoBehaviour
         }
         if (boxesCreated % shipThreshodEventCount == 0)
         {
-            Debug.Log("m_ShipBoxes.Invoke()");
+//            Debug.Log("m_ShipBoxes.Invoke()");
             m_ShipBoxes.Invoke();
+        }
+        if (boxesCreated % levelUpThreshold == 0)
+        {
+            LevelUp();
         }
 
     }
@@ -245,59 +255,97 @@ public class GameManager : MonoBehaviour
         float BrazilSuccessRate = 0.0f;
         float IndiaSuccessRate = 0.0f;
         float UkraineSuccessRate = 0.0f;
+
+        float AverageSuccessRate = 100.0f;
         boxCountDisplay.text = boxesCreated.ToString();
 
         if (TunisiaIntended > 0) {
-             TunisiaSuccessRate = (float)TunisiaDelivered / (float)TunisiaIntended;
+             TunisiaSuccessRate = ((float)TunisiaDelivered / (float)TunisiaIntended) * 100.0f;
         } 
         if (BrazilIntended > 0) {
-            BrazilSuccessRate = (float)BrazilDelivered / (float)BrazilIntended;
+            BrazilSuccessRate = ((float)BrazilDelivered / (float)BrazilIntended) * 100.0f;
         }
         if (IndiaIntended > 0) {
-            IndiaSuccessRate = (float)IndiaDelivered / (float)IndiaIntended;
+            IndiaSuccessRate = ((float)IndiaDelivered / (float)IndiaIntended) * 100.0f;
         }
         if (UkraineIntended > 0) {
             UkraineSuccessRate = ((float)UkraineDelivered / (float)UkraineIntended) * 100.0f;
         }
 
+        AverageSuccessRate = (TunisiaSuccessRate + BrazilSuccessRate + IndiaSuccessRate + UkraineSuccessRate) / 4.0f;
+
         int rejectedTotal = TunisiaPirates + UkrainePirates + IndiaPirates + BrazilPirates;
-        Debug.Log("****************************");
-        Debug.Log("Ukraine Delivered");
-        Debug.Log(UkraineDelivered.ToString());
-        Debug.Log(IndiaDelivered.ToString());
-        Debug.Log(BrazilDelivered.ToString());
-        Debug.Log(PirateDelivered.ToString());
-        Debug.Log("Ukraine Intended ******");
-        Debug.Log(UkraineIntended.ToString());
-        Debug.Log(TunisiaIntended.ToString());
-        Debug.Log(IndiaIntended.ToString());
-        Debug.Log(BrazilIntended.ToString());
-        Debug.Log("Ukraine Pirates**********");
-        Debug.Log(UkrainePirates.ToString());
-        Debug.Log(TunisiaPirates.ToString());
-        Debug.Log(IndiaPirates.ToString());
-        Debug.Log(BrazilPirates.ToString());
-        Debug.Log("Ukraine Success Rate*************");
-        Debug.Log(UkraineSuccessRate.ToString());
-        Debug.Log(TunisiaSuccessRate.ToString());
-        Debug.Log(BrazilSuccessRate.ToString());
-        Debug.Log(IndiaSuccessRate.ToString());
-        Debug.Log("****************************");
+        //Debug.Log("****************************");
+        //Debug.Log("Ukraine Delivered");
+        //Debug.Log(UkraineDelivered.ToString());
+        //Debug.Log(IndiaDelivered.ToString());
+        //Debug.Log(BrazilDelivered.ToString());
+        //Debug.Log(PirateDelivered.ToString());
+        //Debug.Log("Ukraine Intended ******");
+        //Debug.Log(UkraineIntended.ToString());
+        //Debug.Log(TunisiaIntended.ToString());
+        //Debug.Log(IndiaIntended.ToString());
+        //Debug.Log(BrazilIntended.ToString());
+        //Debug.Log("Ukraine Pirates**********");
+        //Debug.Log(UkrainePirates.ToString());
+        //Debug.Log(TunisiaPirates.ToString());
+        //Debug.Log(IndiaPirates.ToString());
+        //Debug.Log(BrazilPirates.ToString());
+        //Debug.Log("Ukraine Success Rate*************");
+        //Debug.Log(UkraineSuccessRate.ToString());
+        //Debug.Log(TunisiaSuccessRate.ToString());
+        //Debug.Log(BrazilSuccessRate.ToString());
+        //Debug.Log(IndiaSuccessRate.ToString());
+        //Debug.Log("****************************");
 
         //String.Format("{0,12:C2}   {0,12:E3}   {0,12:F4}   {0,12:N3}  {1,12:P2}\n",
         //                  Convert.ToDouble(value), Convert.ToDouble(value) / 100);
-        BrazilPercent.text = BrazilSuccessRate.ToString();
-        IndiaPercent.text = IndiaSuccessRate.ToString();
-        TunisiaPercent.text = TunisiaSuccessRate.ToString();
-        UkrainePercent.text = UkraineSuccessRate.ToString();
+        BrazilPercent.text = BrazilSuccessRate.ToString() + "%";
+        IndiaPercent.text = IndiaSuccessRate.ToString() + "%";
+        TunisiaPercent.text = TunisiaSuccessRate.ToString() + "%";
+        UkrainePercent.text = UkraineSuccessRate.ToString() + "%";
         RejectedAccuracy.text = rejectedTotal.ToString();
 
         data1.text = BrazilDelivered.ToString();
         data2.text = IndiaDelivered.ToString();
         data3.text = TunisiaDelivered.ToString();
         data4.text = UkraineDelivered.ToString();
+    }
 
+    public void LevelUp()
+    {
+        // remap for player's AverageSuccessRate
+        float speedUp = math.remap(100.0f, 0.0f, 0.7f, speedIncreaseMultiplier, AverageSuccessRate);
+        // call increaseArrivalSpeed on ArrivalDock
+        m_arrivalDock.increaseArrivalSpeed(speedUp);
+    }
 
+    public void EndGame()
+    {
+        // stop delivering boxes
+        m_arrivalDock.increaseArrivalSpeed(100.0f);
+        gameOver = true;
+        StartCoroutine(myWaitCoroutine());
+    }
+
+    IEnumerator myWaitCoroutine()
+    {
+        yield return new WaitForSeconds(10f);// Wait for one second
+
+        // All your Post-Delay Logic goes here:
+        // Run functions
+        // Set your Values
+        // Or whatever else
+        HideAll();
+        SceneTransitionManager.singleton.GoToSceneAsync(2);
 
     }
+
+    public void HideAll()
+    {
+        // turning down the lights on the fired employee
+        lightGameObject.GetComponent<Light>().intensity = 1.1f;
+    }
+    //StartCoroutine(myWaitCoroutine());
+
 }
