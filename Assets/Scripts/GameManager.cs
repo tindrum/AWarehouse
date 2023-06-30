@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private BinManager m_PirateBin;
     [SerializeField] private BinManager m_UkraineBin;
     [SerializeField] private BinManager m_TunisiaBin;
-    [SerializeField] private GameObject m_IndiaBin;
-    [SerializeField] private GameObject m_BrazilBin;
+    [SerializeField] private BinManager m_IndiaBin;
+    [SerializeField] private BinManager m_BrazilBin;
 
 
     // My Events
@@ -120,6 +120,9 @@ public class GameManager : MonoBehaviour
         m_arrivalDock.m_pushPackageOut.AddListener(IncrementGlobalBoxCount);
         m_PirateBin.m_shipEvent.AddListener(ShippingEvent);
         m_UkraineBin.m_shipEvent.AddListener(ShippingEvent);
+        m_IndiaBin.m_shipEvent.AddListener(ShippingEvent);
+        m_TunisiaBin.m_shipEvent.AddListener(ShippingEvent);
+        m_BrazilBin.m_shipEvent.AddListener(ShippingEvent);
     }
 
     void DisconnectListenerEvents()
@@ -127,6 +130,9 @@ public class GameManager : MonoBehaviour
         m_arrivalDock.m_pushPackageOut.RemoveListener(IncrementGlobalBoxCount);
         m_PirateBin.m_shipEvent.RemoveListener(ShippingEvent);
         m_UkraineBin.m_shipEvent.RemoveListener(ShippingEvent);
+        m_IndiaBin.m_shipEvent.RemoveListener(ShippingEvent);
+        m_TunisiaBin.m_shipEvent.RemoveListener(ShippingEvent);
+        m_BrazilBin.m_shipEvent.RemoveListener(ShippingEvent);
 
     }
 
