@@ -4659,7 +4659,7 @@ MonoBehaviour:
   levelUpThreshold: 21
   speedIncreaseMultiplier: 0.98
   minimumRoundCount: 17
-  minimumPercentageShippedAllowed: 0
+  minimumPercentageShippedAllowed: 70
   lightGameObject: {fileID: 410087039}
   headline: {fileID: 1518782099}
   firedReason: {fileID: 1064021740}
@@ -6130,6 +6130,16 @@ PrefabInstance:
       objectReference: {fileID: 628592735}
     - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
+      propertyPath: hasCoMsoundAdded
+      value: 
+      objectReference: {fileID: 8300000, guid: 7f831ea821cb25b41bd3edddb0c40200, type: 3}
+    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: hasCoMsoundRemoved
+      value: 
+      objectReference: {fileID: 8300000, guid: ab5cce577d8e4464697a79b520734ebf, type: 3}
+    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
       propertyPath: materialAnimationSpeed
       value: -0.08
       objectReference: {fileID: 0}
@@ -7184,6 +7194,16 @@ PrefabInstance:
       propertyPath: boxCountText
       value: 
       objectReference: {fileID: 724579477}
+    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: hasCoMsoundAdded
+      value: 
+      objectReference: {fileID: 8300000, guid: 7f831ea821cb25b41bd3edddb0c40200, type: 3}
+    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: hasCoMsoundRemoved
+      value: 
+      objectReference: {fileID: 8300000, guid: ab5cce577d8e4464697a79b520734ebf, type: 3}
     - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
       propertyPath: materialAnimationSpeed
@@ -13014,6 +13034,16 @@ PrefabInstance:
       propertyPath: boxCountText
       value: 
       objectReference: {fileID: 1232653019}
+    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: hasCoMsoundAdded
+      value: 
+      objectReference: {fileID: 8300000, guid: 7f831ea821cb25b41bd3edddb0c40200, type: 3}
+    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: hasCoMsoundRemoved
+      value: 
+      objectReference: {fileID: 8300000, guid: 7f831ea821cb25b41bd3edddb0c40200, type: 3}
     - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
       propertyPath: materialAnimationSpeed
@@ -20855,11 +20885,6 @@ PrefabInstance:
       objectReference: {fileID: 1378217240}
     - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
-      propertyPath: boxCountText
-      value: 
-      objectReference: {fileID: 1910898795}
-    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
-        type: 3}
       propertyPath: enunciatorSound
       value: 
       objectReference: {fileID: 8300000, guid: 54ba6e09f4d729749a27eaa6904eb0d5, type: 3}
@@ -20867,31 +20892,14 @@ PrefabInstance:
         type: 3}
       propertyPath: hasCoMsoundAdded
       value: 
-      objectReference: {fileID: 8300000, guid: aeebf9f35b9b66a45945c9300732d5d6, type: 3}
+      objectReference: {fileID: 8300000, guid: 7f831ea821cb25b41bd3edddb0c40200, type: 3}
     - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
       propertyPath: hasCoMsoundRemoved
       value: 
-      objectReference: {fileID: 8300000, guid: 58dfbf8a948f1ed458c73ba5a27941a7, type: 3}
-    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
-        type: 3}
-      propertyPath: materialAnimationSpeed
-      value: 0.08
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: ab5cce577d8e4464697a79b520734ebf, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6e4a56d012d3544485ee06d07b50e81, type: 3}
---- !u!114 &1910898795 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3062015236795552436, guid: b6e4a56d012d3544485ee06d07b50e81,
-    type: 3}
-  m_PrefabInstance: {fileID: 1910898794}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1913037773
 GameObject:
   m_ObjectHideFlags: 0
@@ -24211,6 +24219,16 @@ PrefabInstance:
       propertyPath: testBeeper
       value: 
       objectReference: {fileID: 1378217240}
+    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: hasCoMsoundAdded
+      value: 
+      objectReference: {fileID: 8300000, guid: 7f831ea821cb25b41bd3edddb0c40200, type: 3}
+    - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
+        type: 3}
+      propertyPath: hasCoMsoundRemoved
+      value: 
+      objectReference: {fileID: 8300000, guid: ab5cce577d8e4464697a79b520734ebf, type: 3}
     - target: {fileID: 8742080150864930286, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
       propertyPath: materialAnimationSpeed

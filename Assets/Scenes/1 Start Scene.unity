@@ -771,7 +771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 4.31}
+  m_AnchoredPosition: {x: 2.32, y: 5.9}
   m_SizeDelta: {x: 35.05, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &256391882
@@ -5406,7 +5406,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.07000017, y: -0.08500004}
+  m_AnchoredPosition: {x: 0.03, y: 0.03}
   m_SizeDelta: {x: 2, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1888313518
@@ -5429,15 +5429,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Welcome to Rubicon.\nGrab the barcode scanner in one hand. \nAs the packages
-    come down the ramp, \ngrab them, scan them, and put them \non a conveyor belt
-    \ntowards the correct bin. \n\nUse the levers to sweep \nthe paddle arms left
-    or right \nto help guide packages \nto the correct destination. \n\nSome kids
-    are naughty, \nand don't deserve a package. \nThe conveyor belt to the recycle
-    bin \nis behind you, \nso toss bad childrens' packages there.\n\nYou will keep
-    your job \nfor being accurate and quick.\nOh, and the boss will fire you \nfor
-    putting a nice child's present \ndown the recycle chute.\n\nHave a great first
-    day!"
+  m_text: "Welcome, new employee.\nGrab the barcode scanner. \nAs the packages come
+    down the ramp, \ngrab them in your other hand, \nscan them, and put them \non
+    a conveyor belt \ntowards the correct bin. \n\nUse the levers to sweep \nthe
+    paddle arms left or right \nto help guide packages \nto the correct destination.
+    \n\nSome kids are naughty, \nand don't deserve a package. \nThe conveyor belt
+    to the recycle bin \nis behind you, \nso toss bad childrens' packages there.\n\nYou
+    will keep your job \nfor being accurate and quick.\nOh, and the boss will fire
+    you \nfor putting a nice child's present \ndown the recycle chute.\n\nHave a
+    great first day!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5789,7 +5789,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969857031}
   m_LocalRotation: {x: -0, y: -0.3937553, z: -0, w: 0.91921526}
-  m_LocalPosition: {x: -1.679, y: 2.57, z: 1.5192435}
+  m_LocalPosition: {x: -1.267, y: 2.57, z: 3.292}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
