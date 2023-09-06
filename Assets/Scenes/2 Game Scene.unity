@@ -640,6 +640,128 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5686598205869008615}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &58867199
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 5a58a52f06d5c7b41baf8bdba20f3d9a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a58a52f06d5c7b41baf8bdba20f3d9a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 80.000015
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a58a52f06d5c7b41baf8bdba20f3d9a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.93
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a58a52f06d5c7b41baf8bdba20f3d9a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.8551613
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a58a52f06d5c7b41baf8bdba20f3d9a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a58a52f06d5c7b41baf8bdba20f3d9a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.09214145
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a58a52f06d5c7b41baf8bdba20f3d9a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.09245013
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a58a52f06d5c7b41baf8bdba20f3d9a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7010371
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a58a52f06d5c7b41baf8bdba20f3d9a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.70107776
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a58a52f06d5c7b41baf8bdba20f3d9a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a58a52f06d5c7b41baf8bdba20f3d9a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5a58a52f06d5c7b41baf8bdba20f3d9a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5a58a52f06d5c7b41baf8bdba20f3d9a,
+        type: 3}
+      propertyPath: m_Name
+      value: conveyor3000
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a58a52f06d5c7b41baf8bdba20f3d9a, type: 3}
+--- !u!1 &61204481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 61204483}
+  - component: {fileID: 61204482}
+  m_Layer: 0
+  m_Name: Conveyor3000handle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &61204482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61204481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c98a594b062e340a5ee80b716f0f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.4
+  conveyorSpeed: 0.4
+  direction: {x: -0.3, y: 0, z: 0}
+  onBelt: []
+--- !u!4 &61204483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61204481}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.6, y: 1.78, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 45
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &92864478
 GameObject:
   m_ObjectHideFlags: 0
@@ -10759,6 +10881,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979506752}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &980362048 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5a58a52f06d5c7b41baf8bdba20f3d9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 58867199}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &980362052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980362048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c98a594b062e340a5ee80b716f0f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
+  conveyorSpeed: 0.03
+  direction: {x: -0.2, y: 0, z: 0}
+  onBelt: []
+--- !u!65 &980362053
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980362048}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.020000014, y: 0.020000009, z: 0.020000044}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &983727577
 GameObject:
   m_ObjectHideFlags: 0
@@ -20801,7 +20958,7 @@ PrefabInstance:
     - target: {fileID: 4690195025379051169, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.139
+      value: -1.75
       objectReference: {fileID: 0}
     - target: {fileID: 4690195025379051169, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
@@ -24162,7 +24319,7 @@ PrefabInstance:
     - target: {fileID: 4690195025379051169, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.877
+      value: -11.34
       objectReference: {fileID: 0}
     - target: {fileID: 4690195025379051169, guid: b6e4a56d012d3544485ee06d07b50e81,
         type: 3}
