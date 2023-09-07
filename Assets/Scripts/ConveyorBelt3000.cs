@@ -5,7 +5,7 @@ using UnityEngine;
 public class ConveyorBelt3000 : MonoBehaviour
 {
     [SerializeField]
-    private float speed, conveyorSpeed;
+    private float speed, pushness, conveyorSpeed;
     [SerializeField]
     private Vector3 direction;
     [SerializeField]
@@ -35,7 +35,8 @@ public class ConveyorBelt3000 : MonoBehaviour
         // For every item on the belt, add force to it in the direction given
         for (int i = 0; i <= onBelt.Count - 1; i++)
         {
-            onBelt[i].GetComponent<Rigidbody>().AddForce(speed * direction);
+            onBelt[i].GetComponent<Rigidbody>().AddForce(pushness * direction);
+            onBelt[i].GetComponent<Rigidbody>().velocity = (speed * direction * Time.deltaTime);
         }
     }
 
